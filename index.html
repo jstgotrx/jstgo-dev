@@ -27,12 +27,41 @@
     }
     header {
       text-align: center;
-      padding: 1rem;
+      padding: 2rem 1rem 1rem;
       box-shadow: 0 4px 6px rgba(0,0,0,0.2);
     }
+
     header h1 {
-      color: #e63946;
+      font-size: 2rem;
+      background: linear-gradient(
+        120deg,
+        #e63946 0%,
+        #ffffff 20%,
+        #e63946 40%,
+        #e63946 100%
+      );
+      background-size: 200% auto;
+      color: #fff;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 3s linear infinite;
     }
+
+    @keyframes shine {
+      0% {
+        background-position: -100% center;
+      }
+      100% {
+        background-position: 200% center;
+      }
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      color: #ccc;
+    }
+
     nav {
       display: flex;
       justify-content: center;
@@ -63,7 +92,7 @@
       overflow-x: auto;
       scroll-behavior: smooth;
       scroll-snap-type: x mandatory;
-      scroll-padding-top: 150px; /* FIX: prevents top content from being hidden */
+      scroll-padding-top: 150px; /* prevents top content from being hidden */
     }
     section {
       min-width: 100vw;
