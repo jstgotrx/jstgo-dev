@@ -17,11 +17,7 @@
       font-family: 'Segoe UI', sans-serif;
       background: #0e0e0e;
       color: #fff;
-    }
-
-    body {
-      display: flex;
-      flex-direction: column;
+      overflow: hidden;
     }
 
     .header-nav-wrapper {
@@ -52,12 +48,8 @@
     }
 
     @keyframes shine {
-      0% {
-        background-position: -200% center;
-      }
-      100% {
-        background-position: 200% center;
-      }
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
     }
 
     header p {
@@ -72,11 +64,9 @@
       gap: 1rem;
       padding: 1rem;
       background: #141414;
-      border-bottom: 1px solid #2e2e2e;
     }
 
-    nav a,
-    .resume-button {
+    nav a, .resume-button {
       padding: 0.7rem 1.2rem;
       background: #e63946;
       color: white;
@@ -87,8 +77,7 @@
       font-weight: 600;
     }
 
-    nav a:hover,
-    .resume-button:hover {
+    nav a:hover, .resume-button:hover {
       background: #a4161a;
       transform: scale(1.05);
     }
@@ -96,40 +85,54 @@
     .resume-container {
       display: flex;
       justify-content: center;
-      padding: 1rem 0;
+      padding: 0.5rem 0 1rem;
       background: #141414;
-      border-bottom: 1px solid #2e2e2e;
     }
 
-    main {
-      margin-top: 260px;
-      padding: 2rem 1.5rem;
+    .scroll-container {
+      position: absolute;
+      top: 230px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      scroll-padding-top: 150px;
     }
 
     section {
-      max-width: 1000px;
-      margin: 0 auto 4rem;
-      background: #1a1a1a;
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      scroll-snap-align: start;
+      flex: none;
+      width: 100vw;
+      height: calc(100vh - 230px);
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow-y: auto;
+      background: #0e0e0e;
     }
 
     section:nth-child(even) {
-      background: #202020;
+      background: #1c1c1c;
     }
 
     h2 {
       color: #e63946;
+      font-size: 2rem;
       margin-bottom: 1rem;
-      font-size: 1.8rem;
     }
 
     p, li {
       line-height: 1.7;
       font-size: 1rem;
       color: #ddd;
-      margin-bottom: 0.75rem;
+      max-width: 800px;
+      margin-bottom: 1rem;
+      text-align: center;
     }
 
     ul {
@@ -151,12 +154,17 @@
       }
 
       section {
-        padding: 1.5rem;
+        padding: 2rem 1.2rem;
+      }
+
+      p, li {
+        font-size: 0.95rem;
       }
     }
   </style>
 </head>
 <body>
+
   <div class="header-nav-wrapper">
     <header>
       <h1>José A. Santiago Norat</h1>
@@ -172,12 +180,12 @@
     </div>
   </div>
 
-  <main>
+  <div class="scroll-container">
     <section id="about">
       <h2>About Me</h2>
       <p>Hello! I'm <strong>José A. Santiago Norat</strong>, a bilingual Computer Science student from Coamo, Puerto Rico. I'm currently pursuing my Bachelor's degree with a concentration in algorithms, digital marketing, and website development.</p>
-      <p>I’ve gained practical experience working as a <strong>Data Manager</strong> at a local hospital and later as a <strong>Receptionist</strong> at a nursing home. These roles helped me develop both technical and communication skills, enhancing my attention to detail and professionalism in workplace environments.</p>
-      <p>Fluent in both English and Spanish, I’m confident in expressing myself across diverse platforms and audiences. I’m currently seeking part-time opportunities like a <strong>Rater role at Telus International</strong>, where I can apply my analytical skills, typing efficiency, and passion for web technology.</p>
+      <p>After graduating high school in 2022, I worked as a <strong>Data Manager</strong> for a local hospital and later as a <strong>Receptionist</strong> at a nursing home, gaining valuable real-world skills and professional experience. I'm fluent in both English and Spanish, and I communicate clearly and effectively in both languages.</p>
+      <p>I’m currently seeking part-time remote work such as a <strong>Rater role at Telus International</strong>, where I can apply my attention to detail and passion for technology to support quality data and content review.</p>
     </section>
 
     <section id="skills">
@@ -190,7 +198,7 @@
         <li>Basic backend knowledge</li>
         <li>Bilingual: English & Spanish</li>
         <li>Digital Marketing Fundamentals</li>
-        <li>Data Management & File Systems</li>
+        <li>Typing & Data Management</li>
       </ul>
     </section>
 
@@ -200,6 +208,6 @@
       <p>Phone: <a href="tel:7874547779">787-454-7779</a></p>
       <p>Location: Coamo, Puerto Rico</p>
     </section>
-  </main>
+  </div>
 </body>
 </html>
