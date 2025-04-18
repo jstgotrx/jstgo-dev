@@ -17,7 +17,11 @@
       font-family: 'Segoe UI', sans-serif;
       background: #0e0e0e;
       color: #fff;
-      overflow-x: hidden;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
     }
 
     .header-nav-wrapper {
@@ -26,15 +30,13 @@
       width: 100%;
       z-index: 1000;
       background: #1a1a1a;
-      padding: 1rem 0;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.6);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
     }
 
     header {
       text-align: center;
-      padding: 1.5rem 1rem;
+      padding: 1.5rem 1rem 0.5rem;
       background: #1c1c1c;
-      border-radius: 0;
       border-bottom: 1px solid #2e2e2e;
     }
 
@@ -60,19 +62,21 @@
 
     header p {
       margin-top: 0.5rem;
-      color: #ddd;
+      color: #ccc;
+      font-size: 1rem;
     }
 
     nav {
       display: flex;
       justify-content: center;
       gap: 1rem;
-      padding: 1rem 0;
+      padding: 1rem;
       background: #141414;
       border-bottom: 1px solid #2e2e2e;
     }
 
-    nav a, .resume-button {
+    nav a,
+    .resume-button {
       padding: 0.7rem 1.2rem;
       background: #e63946;
       color: white;
@@ -83,7 +87,8 @@
       font-weight: 600;
     }
 
-    nav a:hover, .resume-button:hover {
+    nav a:hover,
+    .resume-button:hover {
       background: #a4161a;
       transform: scale(1.05);
     }
@@ -91,45 +96,63 @@
     .resume-container {
       display: flex;
       justify-content: center;
-      margin-top: 1rem;
+      padding: 1rem 0;
+      background: #141414;
+      border-bottom: 1px solid #2e2e2e;
     }
 
-    .scroll-container {
-      margin-top: 180px;
-      display: flex;
-      flex-direction: column;
+    main {
+      margin-top: 260px;
+      padding: 2rem 1.5rem;
     }
 
     section {
-      width: 100%;
-      padding: 4rem 2rem;
-      background: #0e0e0e;
-      border-top: 1px solid #222;
+      max-width: 1000px;
+      margin: 0 auto 4rem;
+      background: #1a1a1a;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
     section:nth-child(even) {
-      background: #1c1c1c;
+      background: #202020;
     }
 
     h2 {
       color: #e63946;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       font-size: 1.8rem;
     }
 
-    p {
-      line-height: 1.6;
+    p, li {
+      line-height: 1.7;
       font-size: 1rem;
-      color: #ccc;
-      margin-bottom: 1rem;
+      color: #ddd;
+      margin-bottom: 0.75rem;
     }
 
-    ul li {
-      margin-bottom: 0.5rem;
+    ul {
+      padding-left: 1.5rem;
     }
 
     a {
       color: #e63946;
+    }
+
+    @media screen and (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      section {
+        padding: 1.5rem;
+      }
     }
   </style>
 </head>
@@ -139,19 +162,17 @@
       <h1>José A. Santiago Norat</h1>
       <p>Front-End Developer & Computer Science Student</p>
     </header>
-
     <nav>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </nav>
-
     <div class="resume-container">
       <a class="resume-button" href="resume.pdf" download>Download Résumé</a>
     </div>
   </div>
 
-  <div class="scroll-container">
+  <main>
     <section id="about">
       <h2>About Me</h2>
       <p>Hello! I'm <strong>José A. Santiago Norat</strong>, a bilingual Computer Science student from Coamo, Puerto Rico. I'm currently pursuing my Bachelor's degree with a concentration in algorithms, digital marketing, and website development.</p>
@@ -179,6 +200,6 @@
       <p>Phone: <a href="tel:7874547779">787-454-7779</a></p>
       <p>Location: Coamo, Puerto Rico</p>
     </section>
-  </div>
+  </main>
 </body>
 </html>
