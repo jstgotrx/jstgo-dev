@@ -18,6 +18,38 @@
       color: #fff;
       overflow: hidden;
     }
+
+    /* Welcome popup */
+    .welcome-popup {
+      position: fixed;
+      bottom: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      backdrop-filter: blur(6px);
+      opacity: 0;
+      animation: slideUpFade 1.5s ease-out 0.5s forwards, hidePopup 1s ease-in 6s forwards;
+      z-index: 9999;
+      font-size: 0.95rem;
+    }
+
+    @keyframes slideUpFade {
+      to {
+        bottom: 2rem;
+        opacity: 1;
+      }
+    }
+
+    @keyframes hidePopup {
+      to {
+        opacity: 0;
+        bottom: -100px;
+      }
+    }
+
     .header-nav-wrapper {
       position: fixed;
       top: 0;
@@ -25,6 +57,7 @@
       z-index: 1000;
       background: #1c1c1c;
     }
+
     header {
       text-align: center;
       padding: 2rem 1rem 1rem;
@@ -69,6 +102,7 @@
       padding: 1rem;
       background: #111;
     }
+
     nav a {
       padding: 0.7rem 1.2rem;
       background: #e63946;
@@ -78,13 +112,15 @@
       transition: all 0.3s ease;
       box-shadow: 0 2px 10px rgba(255, 0, 0, 0.4);
     }
+
     nav a:hover {
       background: #a4161a;
       transform: scale(1.05);
     }
+
     .scroll-container {
       position: absolute;
-      top: 150px; /* height of header + nav */
+      top: 150px;
       bottom: 0;
       left: 0;
       right: 0;
@@ -92,8 +128,9 @@
       overflow-x: auto;
       scroll-behavior: smooth;
       scroll-snap-type: x mandatory;
-      scroll-padding-top: 150px; /* prevents top content from being hidden */
+      scroll-padding-top: 150px;
     }
+
     section {
       min-width: 100vw;
       height: calc(100vh - 150px);
@@ -105,13 +142,16 @@
       justify-content: center;
       background: #0e0e0e;
     }
+
     section:nth-child(even) {
       background: #1c1c1c;
     }
+
     h2 {
       color: #e63946;
       margin-bottom: 1rem;
     }
+
     a {
       color: #e63946;
     }
@@ -121,7 +161,7 @@
   <div class="header-nav-wrapper">
     <header>
       <h1>José A. Santiago Norat</h1>
-      <p>Frontend Developer & Computer Science Student</p>
+      <p>Front-End Developer & Computer Science Student</p>
     </header>
     <nav>
       <a href="#about">About</a>
@@ -133,7 +173,7 @@
   <div class="scroll-container">
     <section id="about">
       <h2>About Me</h2>
-      <p>Hi! I'm José, a frontend developer and computer science student based in Coamo, Puerto Rico. I specialize in creating beautiful, functional interfaces with clean code and modern web standards.</p>
+      <p>Hi! I'm José, a front-end developer and computer science student based in Coamo, Puerto Rico. I specialize in creating beautiful, functional interfaces with clean code and modern web standards.</p>
     </section>
 
     <section id="skills">
@@ -154,5 +194,7 @@
       <p>Location: Coamo, Puerto Rico</p>
     </section>
   </div>
+
+  <div class="welcome-popup">Welcome to my profile</div>
 </body>
 </html>
