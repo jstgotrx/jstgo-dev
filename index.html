@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>José A. Santiago Norat | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -47,7 +48,7 @@
       -webkit-text-fill-color: transparent;
       animation: shine 10s linear infinite;
       font-weight: bold;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Syne', sans-serif;
     }
 
     @keyframes shine {
@@ -119,10 +120,20 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
     }
 
     section:nth-child(even) {
       background: #1c1c1c;
+    }
+
+    .content-box {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 14px;
+      width: 100%;
+      max-width: 800px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.15);
     }
 
     h2 {
@@ -141,6 +152,15 @@
     ul {
       list-style-type: disc;
       padding-left: 1.5rem;
+    }
+
+    a {
+      color: #ff6b6b;
+    }
+
+    a:hover {
+      color: #fff;
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -161,43 +181,51 @@
 
   <div class="scroll-container">
     <section id="about">
-      <h2>About Me</h2>
-      <p>Hi! I'm José, a passionate front-end developer and computer science student based in Coamo, Puerto Rico. I'm currently specializing in algorithms, digital marketing, and building immersive, fast, and interactive web applications. I'm seeking to contribute my skills as a part-time rater at Telus International.</p>
+      <div class="content-box">
+        <h2>About Me</h2>
+        <p>Hi! I'm José, a passionate front-end developer and computer science student based in Coamo, Puerto Rico. I'm currently specializing in algorithms, digital marketing, and building immersive, fast, and interactive web applications. I'm seeking to contribute my skills as a part-time rater at Telus International.</p>
+      </div>
     </section>
 
     <section id="skills">
-      <h2>Skills</h2>
-      <ul>
-        <li>HTML, CSS, JavaScript</li>
-        <li>React, Vue, or similar frameworks</li>
-        <li>Responsive Design & UI/UX</li>
-        <li>Git & GitHub</li>
-        <li>Basic backend knowledge</li>
-        <li>Algorithm Optimization</li>
-        <li>Digital Marketing Tools & Techniques</li>
-      </ul>
+      <div class="content-box">
+        <h2>Skills</h2>
+        <ul>
+          <li>HTML, CSS, JavaScript</li>
+          <li>React, Vue, or similar frameworks</li>
+          <li>Responsive Design & UI/UX</li>
+          <li>Git & GitHub</li>
+          <li>Basic backend knowledge</li>
+          <li>Algorithm Optimization</li>
+          <li>Digital Marketing Tools & Techniques</li>
+        </ul>
+      </div>
     </section>
 
     <section id="experience">
-      <h2>Experience & Education</h2>
-      <p><strong>High School Graduate (2018–2022)</strong><br>
-      Graduated in 2022 and immediately pursued a Bachelor’s in Computer Science at the University of Puerto Rico.</p>
+      <div class="content-box">
+        <h2>Experience & Education</h2>
+        <p><strong>High School Graduate (2018–2022)</strong><br>
+        Graduated in 2022 and immediately pursued a Bachelor’s in Computer Science at the University of Puerto Rico.</p>
 
-      <p><strong>Bachelor’s Degree (2022–2024)</strong><br>
-      Currently pursuing a CS degree with a focus on app development and digital marketing.</p>
+        <p><strong>Bachelor’s Degree (2022–2024)</strong><br>
+        Currently pursuing a CS degree with a focus on app development and digital marketing.</p>
 
-      <p><strong>Data Manager – Hospital (2022)</strong><br>
-      Managed archives and patient records for a local hospital prior to college.</p>
+        <p><strong>Data Manager – Hospital (2022)</strong><br>
+        Managed archives and patient records for a local hospital prior to college.</p>
 
-      <p><strong>Receptionist – Nursing Home</strong><br>
-      Provided front-desk support and assistance at a nursing home.</p>
+        <p><strong>Receptionist – Nursing Home</strong><br>
+        Provided front-desk support and assistance at a nursing home.</p>
+      </div>
     </section>
 
     <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:joc.stgo27@gmail.com">joc.stgo27@gmail.com</a></p>
-      <p>Phone: <a href="tel:7874547779">787-454-7779</a></p>
-      <p>Location: Coamo, Puerto Rico</p>
+      <div class="content-box">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:joc.stgo27@gmail.com">joc.stgo27@gmail.com</a></p>
+        <p>Phone: <a href="tel:7874547779">787-454-7779</a></p>
+        <p>Location: Coamo, Puerto Rico</p>
+      </div>
     </section>
   </div>
 </body>
