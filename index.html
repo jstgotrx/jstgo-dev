@@ -69,6 +69,7 @@
     nav {
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 1rem;
       padding: 1rem;
       background: #141414;
@@ -99,24 +100,14 @@
       transform: scale(1.05) skew(-15deg);
     }
 
-    .scroll-container {
-      position: absolute;
-      top: 180px;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      display: flex;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      scroll-snap-type: x mandatory;
+    .main-container {
+      margin-top: 180px;
+      padding-bottom: 2rem;
     }
 
     section {
-      min-width: 100vw;
-      height: calc(100vh - 180px);
+      width: 100%;
       padding: 3rem 2rem;
-      scroll-snap-align: start;
-      flex-shrink: 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -162,6 +153,31 @@
       color: #fff;
       text-decoration: underline;
     }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+
+      nav a {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+        transform: none;
+      }
+
+      .content-box {
+        padding: 1.5rem;
+        width: 95%;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      p, li {
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -179,7 +195,7 @@
     </nav>
   </div>
 
-  <div class="scroll-container">
+  <div class="main-container">
     <section id="about">
       <div class="content-box">
         <h2>About Me</h2>
