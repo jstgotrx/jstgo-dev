@@ -17,37 +17,7 @@
       font-family: 'Segoe UI', sans-serif;
       background: #0e0e0e;
       color: #fff;
-      overflow: hidden;
-    }
-
-    .welcome-popup {
-      position: fixed;
-      bottom: -100px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: rgba(255, 255, 255, 0.08);
-      color: #fff;
-      padding: 1rem 2rem;
-      font-weight: 600;
-      font-size: 0.95rem;
-      opacity: 0;
-      backdrop-filter: blur(6px);
-      animation: slideUpFade 1.5s ease-out 0.5s forwards, hidePopup 1s ease-in 6s forwards;
-      z-index: 9999;
-    }
-
-    @keyframes slideUpFade {
-      to {
-        bottom: 2rem;
-        opacity: 1;
-      }
-    }
-
-    @keyframes hidePopup {
-      to {
-        opacity: 0;
-        bottom: -100px;
-      }
+      overflow-x: hidden;
     }
 
     .header-nav-wrapper {
@@ -55,28 +25,23 @@
       top: 0;
       width: 100%;
       z-index: 1000;
-      padding: 1rem;
-      background: transparent;
+      background: #1a1a1a;
+      padding: 1rem 0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.6);
     }
 
     header {
       text-align: center;
-      padding: 2rem 1rem 1rem;
+      padding: 1.5rem 1rem;
       background: #1c1c1c;
       border-radius: 0;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+      border-bottom: 1px solid #2e2e2e;
     }
 
     header h1 {
       font-size: 2.2rem;
       color: #ff6b6b;
-      background: linear-gradient(
-        120deg,
-        #ff6b6b 0%,
-        #ffffff 15%,
-        #ff6b6b 30%,
-        #ff6b6b 100%
-      );
+      background: linear-gradient(120deg, #ff6b6b 0%, #ffffff 15%, #ff6b6b 30%, #ff6b6b 100%);
       background-size: 200% auto;
       background-clip: text;
       -webkit-background-clip: text;
@@ -102,71 +67,44 @@
       display: flex;
       justify-content: center;
       gap: 1rem;
-      padding: 1rem;
+      padding: 1rem 0;
       background: #141414;
-      border-radius: 0;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      border-bottom: 1px solid #2e2e2e;
     }
 
-    nav a {
+    nav a, .resume-button {
       padding: 0.7rem 1.2rem;
       background: #e63946;
       color: white;
       text-decoration: none;
-      border-radius: 12px;
+      border-radius: 10px;
       transition: all 0.3s ease;
       box-shadow: 0 2px 10px rgba(255, 0, 0, 0.4);
+      font-weight: 600;
     }
 
-    nav a:hover {
+    nav a:hover, .resume-button:hover {
       background: #a4161a;
       transform: scale(1.05);
     }
 
-    .resume-button-wrapper {
+    .resume-container {
       display: flex;
       justify-content: center;
       margin-top: 1rem;
     }
 
-    .resume-btn {
-      padding: 0.7rem 1.2rem;
-      background: #e63946;
-      color: white;
-      text-decoration: none;
-      border-radius: 12px;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 10px rgba(255, 0, 0, 0.4);
-    }
-
-    .resume-btn:hover {
-      background: #a4161a;
-      transform: scale(1.05);
-    }
-
     .scroll-container {
-      position: absolute;
-      top: 220px;
-      bottom: 0;
-      left: 0;
-      right: 0;
+      margin-top: 180px;
       display: flex;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      scroll-snap-type: x mandatory;
-      scroll-padding-top: 150px;
+      flex-direction: column;
     }
 
     section {
-      min-width: 100vw;
-      height: calc(100vh - 220px);
-      padding: 3rem 2rem;
-      scroll-snap-align: start;
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      width: 100%;
+      padding: 4rem 2rem;
       background: #0e0e0e;
+      border-top: 1px solid #222;
     }
 
     section:nth-child(even) {
@@ -175,7 +113,19 @@
 
     h2 {
       color: #e63946;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+
+    p {
+      line-height: 1.6;
+      font-size: 1rem;
+      color: #ccc;
       margin-bottom: 1rem;
+    }
+
+    ul li {
+      margin-bottom: 0.5rem;
     }
 
     a {
@@ -189,20 +139,24 @@
       <h1>José A. Santiago Norat</h1>
       <p>Front-End Developer & Computer Science Student</p>
     </header>
+
     <nav>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </nav>
-    <div class="resume-button-wrapper">
-      <a href="resume.pdf" class="resume-btn" download>Download Résumé</a>
+
+    <div class="resume-container">
+      <a class="resume-button" href="resume.pdf" download>Download Résumé</a>
     </div>
   </div>
 
   <div class="scroll-container">
     <section id="about">
       <h2>About Me</h2>
-      <p>Hi! I'm José, a front-end developer and computer science student based in Coamo, Puerto Rico. I specialize in creating beautiful, functional interfaces with clean code and modern web standards.</p>
+      <p>Hello! I'm <strong>José A. Santiago Norat</strong>, a bilingual Computer Science student from Coamo, Puerto Rico. I'm currently pursuing my Bachelor's degree with a concentration in algorithms, digital marketing, and website development.</p>
+      <p>I’ve gained practical experience working as a <strong>Data Manager</strong> at a local hospital and later as a <strong>Receptionist</strong> at a nursing home. These roles helped me develop both technical and communication skills, enhancing my attention to detail and professionalism in workplace environments.</p>
+      <p>Fluent in both English and Spanish, I’m confident in expressing myself across diverse platforms and audiences. I’m currently seeking part-time opportunities like a <strong>Rater role at Telus International</strong>, where I can apply my analytical skills, typing efficiency, and passion for web technology.</p>
     </section>
 
     <section id="skills">
@@ -213,17 +167,18 @@
         <li>Responsive Design & UI/UX</li>
         <li>Git & GitHub</li>
         <li>Basic backend knowledge</li>
+        <li>Bilingual: English & Spanish</li>
+        <li>Digital Marketing Fundamentals</li>
+        <li>Data Management & File Systems</li>
       </ul>
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:joc.stgo27@gmail.com">joc.stgo27@gmail.com</a></p>
+      <p>Email: <a href="mailto:jose.stgo27@icloud.com">jose.stgo27@icloud.com</a></p>
       <p>Phone: <a href="tel:7874547779">787-454-7779</a></p>
       <p>Location: Coamo, Puerto Rico</p>
     </section>
   </div>
-
-  <div class="welcome-popup">Welcome to my profile!</div>
 </body>
 </html>
