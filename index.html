@@ -27,13 +27,14 @@
     }
 
     header {
-      text-align: center;
-      padding: 2rem 1rem 1rem;
+      text-align: left;
+      padding: 1.5rem 1rem 1rem 2rem;
       background: #1c1c1c;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
     }
 
     header h1 {
+      font-family: 'Syne', sans-serif;
       font-size: 2.2rem;
       background: linear-gradient(
         120deg,
@@ -48,7 +49,6 @@
       -webkit-text-fill-color: transparent;
       animation: shine 10s linear infinite;
       font-weight: bold;
-      font-family: 'Syne', sans-serif;
     }
 
     @keyframes shine {
@@ -61,7 +61,7 @@
     }
 
     header p {
-      margin-top: 0.5rem;
+      margin-top: 0.2rem;
       color: #ddd;
       font-size: 1rem;
     }
@@ -69,11 +69,11 @@
     nav {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
       gap: 1rem;
       padding: 1rem;
       background: #141414;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      flex-wrap: wrap;
     }
 
     nav a {
@@ -100,19 +100,27 @@
       transform: scale(1.05) skew(-15deg);
     }
 
-    .main-container {
-      margin-top: 180px;
+    .scroll-container {
+      position: absolute;
+      top: 180px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
     }
 
     section {
-      min-height: 100vh;
+      min-width: 100vw;
+      height: calc(100vh - 180px);
       padding: 3rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       scroll-snap-align: start;
-      position: relative;
-      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     section:nth-child(even) {
@@ -120,34 +128,13 @@
     }
 
     .content-box {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       padding: 2rem;
-      border-radius: 14px;
-      width: 100%;
+      border-radius: 10px;
       max-width: 800px;
-      box-shadow: 0 0 20px rgba(255, 0, 0, 0.15);
-      opacity: 0;
-      transform: translateX(100px);
-      animation: fadeInRight 1s ease-out forwards;
-    }
-
-    section:nth-child(even) .content-box {
-      transform: translateX(-100px);
-      animation: fadeInLeft 1s ease-out forwards;
-    }
-
-    @keyframes fadeInRight {
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes fadeInLeft {
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
+      margin: auto;
+      width: 90%;
     }
 
     h2 {
@@ -168,43 +155,25 @@
       padding-left: 1.5rem;
     }
 
-    a {
-      color: #ff6b6b;
-    }
+    @media (max-width: 480px) {
+      nav a {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+        border-radius: 12px;
+        transform: skew(-12deg);
+      }
 
-    a:hover {
-      color: #fff;
-      text-decoration: underline;
-    }
+      nav a span {
+        transform: skew(12deg);
+        font-size: 0.85rem;
+      }
 
-    @media (max-width: 768px) {
       header h1 {
         font-size: 1.6rem;
       }
 
-      nav a {
-        padding: 0.6rem 1rem;
+      header p {
         font-size: 0.9rem;
-        transform: none;
-      }
-
-      .content-box {
-        padding: 1.5rem;
-        width: 95%;
-      }
-
-      h2 {
-        font-size: 1.5rem;
-      }
-
-      p, li {
-        font-size: 1rem;
-      }
-
-      .content-box {
-        transform: none !important;
-        opacity: 1 !important;
-        animation: none !important;
       }
     }
   </style>
@@ -224,7 +193,7 @@
     </nav>
   </div>
 
-  <div class="main-container">
+  <div class="scroll-container">
     <section id="about">
       <div class="content-box">
         <h2>About Me</h2>
