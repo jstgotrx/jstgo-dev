@@ -15,15 +15,25 @@
       font-family: 'Segoe UI', sans-serif;
       background: #0e0e0e;
       color: #fff;
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
-    .site-title {
-      position: absolute;
-      top: 1rem;
-      left: 1.5rem;
-      font-size: 1.7rem;
-      font-weight: bold;
+    .header-nav-wrapper {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+      background: #1c1c1c;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    header h1 {
+      font-size: 2.2rem;
       background: linear-gradient(
         120deg,
         #ff6b6b 0%,
@@ -36,18 +46,8 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: shine 10s linear infinite;
-    }
-
-    .site-subtitle {
-      position: absolute;
-      top: 3.4rem;
-      left: 1.5rem;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: #bbb;
+      font-weight: bold;
       font-family: 'Segoe UI', sans-serif;
-      letter-spacing: 1px;
-      opacity: 0.9;
     }
 
     @keyframes shine {
@@ -59,12 +59,19 @@
       }
     }
 
+    header p {
+      margin-top: 0.5rem;
+      color: #ddd;
+      font-size: 1rem;
+    }
+
     nav {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
       display: flex;
+      justify-content: center;
       gap: 1rem;
+      padding: 1rem;
+      background: #141414;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     }
 
     nav a {
@@ -72,12 +79,11 @@
       background: #e63946;
       color: white;
       text-decoration: none;
-      border-radius: 12px;
+      border-radius: 14px;
       transition: all 0.3s ease;
       box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
       font-weight: bold;
       transform: skew(-15deg);
-      border: none;
     }
 
     nav a span {
@@ -85,7 +91,6 @@
       transform: skew(15deg);
       font-family: 'Segoe UI', sans-serif;
       font-weight: 600;
-      letter-spacing: 0.5px;
     }
 
     nav a:hover {
@@ -95,7 +100,7 @@
 
     .scroll-container {
       position: absolute;
-      top: 100px;
+      top: 180px;
       bottom: 0;
       left: 0;
       right: 0;
@@ -103,12 +108,11 @@
       overflow-x: auto;
       scroll-behavior: smooth;
       scroll-snap-type: x mandatory;
-      scroll-padding-top: 100px;
     }
 
     section {
       min-width: 100vw;
-      height: calc(100vh - 100px);
+      height: calc(100vh - 180px);
       padding: 3rem 2rem;
       scroll-snap-align: start;
       flex-shrink: 0;
@@ -141,16 +145,19 @@
   </style>
 </head>
 <body>
-  <div class="site-title">José A. Santiago Norat</div>
-  <div class="site-subtitle">Front-End Developer & Computer Science Student</div>
-
-  <nav>
-    <a href="#about"><span>About</span></a>
-    <a href="#skills"><span>Skills</span></a>
-    <a href="#experience"><span>Experience</span></a>
-    <a href="#contact"><span>Contact</span></a>
-    <a href="José_Santiago_Resume.pdf" download><span>Resume</span></a>
-  </nav>
+  <div class="header-nav-wrapper">
+    <header>
+      <h1>José A. Santiago Norat</h1>
+      <p>Front-End Developer & Computer Science Student</p>
+    </header>
+    <nav>
+      <a href="#about"><span>About</span></a>
+      <a href="#skills"><span>Skills</span></a>
+      <a href="#experience"><span>Experience</span></a>
+      <a href="#contact"><span>Contact</span></a>
+      <a href="José_Santiago_Resume.pdf" download><span>Resume</span></a>
+    </nav>
+  </div>
 
   <div class="scroll-container">
     <section id="about">
