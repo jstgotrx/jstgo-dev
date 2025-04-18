@@ -102,16 +102,17 @@
 
     .main-container {
       margin-top: 180px;
-      padding-bottom: 2rem;
     }
 
     section {
-      width: 100%;
+      min-height: 100vh;
       padding: 3rem 2rem;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+      scroll-snap-align: start;
+      position: relative;
+      overflow: hidden;
     }
 
     section:nth-child(even) {
@@ -125,6 +126,28 @@
       width: 100%;
       max-width: 800px;
       box-shadow: 0 0 20px rgba(255, 0, 0, 0.15);
+      opacity: 0;
+      transform: translateX(100px);
+      animation: fadeInRight 1s ease-out forwards;
+    }
+
+    section:nth-child(even) .content-box {
+      transform: translateX(-100px);
+      animation: fadeInLeft 1s ease-out forwards;
+    }
+
+    @keyframes fadeInRight {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeInLeft {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
 
     h2 {
@@ -176,6 +199,12 @@
 
       p, li {
         font-size: 1rem;
+      }
+
+      .content-box {
+        transform: none !important;
+        opacity: 1 !important;
+        animation: none !important;
       }
     }
   </style>
