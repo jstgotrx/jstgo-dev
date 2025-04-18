@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>José A. Santiago Norat | Front-End Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Rajdhani:wght@600&display=swap" rel="stylesheet">
+  <title>José A. Santiago Norat | Portfolio</title>
   <style>
     * {
       box-sizing: border-box;
@@ -12,30 +11,19 @@
       padding: 0;
     }
 
-    html, body {
-      height: 100%;
-      width: 100%;
+    body {
       font-family: 'Segoe UI', sans-serif;
-      background: #0a0a0a;
+      background: #0e0e0e;
       color: #fff;
       overflow: hidden;
-    }
-
-    .header-nav-wrapper {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      background: #111;
-      border-bottom: 2px solid #e63946;
     }
 
     .site-title {
       position: absolute;
       top: 1rem;
       left: 1.5rem;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.5rem;
+      font-size: 1.7rem;
+      font-weight: bold;
       background: linear-gradient(
         120deg,
         #ff6b6b 0%,
@@ -48,7 +36,18 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: shine 10s linear infinite;
-      letter-spacing: 2px;
+    }
+
+    .site-subtitle {
+      position: absolute;
+      top: 3.4rem;
+      left: 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #bbb;
+      font-family: 'Segoe UI', sans-serif;
+      letter-spacing: 1px;
+      opacity: 0.9;
     }
 
     @keyframes shine {
@@ -61,41 +60,42 @@
     }
 
     nav {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
       gap: 1rem;
-      padding: 4rem 1rem 1rem;
-      background: #141414;
     }
 
     nav a {
-      font-family: 'Rajdhani', sans-serif;
-      position: relative;
-      display: inline-block;
-      padding: 0.7rem 1.5rem;
-      color: white;
+      padding: 0.7rem 1.2rem;
       background: #e63946;
+      color: white;
       text-decoration: none;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      clip-path: polygon(12% 0%, 100% 0%, 88% 100%, 0% 100%);
-      border-radius: 10px;
+      border-radius: 12px;
       transition: all 0.3s ease;
-      box-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+      font-weight: bold;
+      transform: skew(-15deg);
+      border: none;
+    }
+
+    nav a span {
+      display: inline-block;
+      transform: skew(15deg);
+      font-family: 'Segoe UI', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
     }
 
     nav a:hover {
       background: #a4161a;
-      transform: scale(1.05);
-      box-shadow: 0 0 12px rgba(255, 0, 0, 0.8);
+      transform: scale(1.05) skew(-15deg);
     }
 
     .scroll-container {
       position: absolute;
-      top: 170px;
+      top: 100px;
       bottom: 0;
       left: 0;
       right: 0;
@@ -103,101 +103,59 @@
       overflow-x: auto;
       scroll-behavior: smooth;
       scroll-snap-type: x mandatory;
+      scroll-padding-top: 100px;
     }
 
     section {
-      scroll-snap-align: start;
-      flex: none;
-      width: 100vw;
-      height: calc(100vh - 170px);
+      min-width: 100vw;
+      height: calc(100vh - 100px);
       padding: 3rem 2rem;
+      scroll-snap-align: start;
+      flex-shrink: 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
-      overflow-y: auto;
-      background: #0a0a0a;
     }
 
     section:nth-child(even) {
-      background: #161616;
+      background: #1c1c1c;
     }
 
     h2 {
       color: #e63946;
-      font-size: 2rem;
-      margin-bottom: 1.2rem;
-      text-transform: uppercase;
-      border-bottom: 2px solid #e63946;
-      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
     }
 
     p, li {
-      line-height: 1.7;
       font-size: 1.05rem;
-      color: #ddd;
-      max-width: 800px;
+      line-height: 1.7;
       margin-bottom: 1rem;
-      text-align: center;
+      color: #ddd;
     }
 
     ul {
+      list-style-type: disc;
       padding-left: 1.5rem;
-    }
-
-    a {
-      color: #e63946;
-    }
-
-    @media screen and (max-width: 600px) {
-      nav {
-        flex-direction: column;
-        align-items: center;
-        padding-top: 5rem;
-      }
-
-      .site-title {
-        font-size: 1.2rem;
-        top: 0.7rem;
-        left: 1rem;
-      }
-
-      section {
-        padding: 2rem 1rem;
-      }
-
-      h2 {
-        font-size: 1.5rem;
-      }
-
-      p, li {
-        font-size: 0.95rem;
-      }
-
-      nav a {
-        clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
-      }
     }
   </style>
 </head>
 <body>
+  <div class="site-title">José A. Santiago Norat</div>
+  <div class="site-subtitle">Front-End Developer & Computer Science Student</div>
 
-  <div class="header-nav-wrapper">
-    <div class="site-title">JOSÉ A. SANTIAGO NORAT</div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-      <a href="resume.pdf" download>Download Résumé</a>
-    </nav>
-  </div>
+  <nav>
+    <a href="#about"><span>About</span></a>
+    <a href="#skills"><span>Skills</span></a>
+    <a href="#experience"><span>Experience</span></a>
+    <a href="#contact"><span>Contact</span></a>
+    <a href="José_Santiago_Resume.pdf" download><span>Resume</span></a>
+  </nav>
 
   <div class="scroll-container">
     <section id="about">
       <h2>About Me</h2>
-      <p>Hello! I'm <strong>José A. Santiago Norat</strong>, a bilingual Computer Science student from Coamo, Puerto Rico. I'm currently pursuing my Bachelor's degree with a concentration in algorithms, digital marketing, and website development.</p>
-      <p>After graduating high school in 2022, I worked as a <strong>Data Manager</strong> for a local hospital and later as a <strong>Receptionist</strong> at a nursing home, gaining valuable real-world skills and professional experience.</p>
-      <p>I'm fluent in both English and Spanish, and I communicate clearly and effectively in both languages. I'm actively looking for remote part-time opportunities like a <strong>Rater position at Telus International</strong>, where I can apply my attention to detail and passion for tech.</p>
+      <p>Hi! I'm José, a passionate front-end developer and computer science student based in Coamo, Puerto Rico. I'm currently specializing in algorithms, digital marketing, and building immersive, fast, and interactive web applications. I'm seeking to contribute my skills as a part-time rater at Telus International.</p>
     </section>
 
     <section id="skills">
@@ -208,19 +166,32 @@
         <li>Responsive Design & UI/UX</li>
         <li>Git & GitHub</li>
         <li>Basic backend knowledge</li>
-        <li>Digital Marketing & SEO</li>
-        <li>Bilingual: English & Spanish</li>
-        <li>Typing & Data Entry</li>
+        <li>Algorithm Optimization</li>
+        <li>Digital Marketing Tools & Techniques</li>
       </ul>
+    </section>
+
+    <section id="experience">
+      <h2>Experience & Education</h2>
+      <p><strong>High School Graduate (2018–2022)</strong><br>
+      Graduated in 2022 and immediately pursued a Bachelor’s in Computer Science at the University of Puerto Rico.</p>
+
+      <p><strong>Bachelor’s Degree (2022–2024)</strong><br>
+      Currently pursuing a CS degree with a focus on app development and digital marketing.</p>
+
+      <p><strong>Data Manager – Hospital (2022)</strong><br>
+      Managed archives and patient records for a local hospital prior to college.</p>
+
+      <p><strong>Receptionist – Nursing Home</strong><br>
+      Provided front-desk support and assistance at a nursing home.</p>
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:jose.stgo27@icloud.com">jose.stgo27@icloud.com</a></p>
+      <p>Email: <a href="mailto:joc.stgo27@gmail.com">joc.stgo27@gmail.com</a></p>
       <p>Phone: <a href="tel:7874547779">787-454-7779</a></p>
       <p>Location: Coamo, Puerto Rico</p>
     </section>
   </div>
-
 </body>
 </html>
