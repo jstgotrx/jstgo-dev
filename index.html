@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>José A. Santiago Norat | Front-End Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Rajdhani:wght@600&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -49,7 +49,6 @@
       -webkit-text-fill-color: transparent;
       animation: shine 10s linear infinite;
       letter-spacing: 2px;
-      text-shadow: none;
     }
 
     @keyframes shine {
@@ -64,12 +63,14 @@
     nav {
       display: flex;
       justify-content: center;
+      align-items: center;
       gap: 1rem;
       padding: 4rem 1rem 1rem;
       background: #141414;
     }
 
     nav a, .resume-button {
+      font-family: 'Rajdhani', sans-serif;
       position: relative;
       display: inline-block;
       padding: 0.7rem 1.5rem;
@@ -79,21 +80,16 @@
       font-weight: bold;
       text-transform: uppercase;
       letter-spacing: 1px;
-      clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+      clip-path: polygon(12% 0%, 100% 0%, 88% 100%, 0% 100%);
+      border-radius: 10px;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+      box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5);
     }
 
     nav a:hover, .resume-button:hover {
       background: #a4161a;
       transform: scale(1.05);
-    }
-
-    .resume-container {
-      display: flex;
-      justify-content: center;
-      padding: 0.5rem 0 1rem;
-      background: #141414;
+      box-shadow: 0 6px 18px rgba(255, 0, 0, 0.6);
     }
 
     .scroll-container {
@@ -178,7 +174,7 @@
       }
 
       nav a, .resume-button {
-        clip-path: polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%);
+        clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
       }
     }
   </style>
@@ -191,10 +187,8 @@
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
-    </nav>
-    <div class="resume-container">
       <a class="resume-button" href="resume.pdf" download>Download Résumé</a>
-    </div>
+    </nav>
   </div>
 
   <div class="scroll-container">
