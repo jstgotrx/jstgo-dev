@@ -64,12 +64,13 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-wrap: wrap;
       gap: 1rem;
       padding: 4rem 1rem 1rem;
       background: #141414;
     }
 
-    nav a, .resume-button {
+    nav a {
       font-family: 'Rajdhani', sans-serif;
       position: relative;
       display: inline-block;
@@ -83,13 +84,13 @@
       clip-path: polygon(12% 0%, 100% 0%, 88% 100%, 0% 100%);
       border-radius: 10px;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5);
+      box-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
     }
 
-    nav a:hover, .resume-button:hover {
+    nav a:hover {
       background: #a4161a;
       transform: scale(1.05);
-      box-shadow: 0 6px 18px rgba(255, 0, 0, 0.6);
+      box-shadow: 0 0 12px rgba(255, 0, 0, 0.8);
     }
 
     .scroll-container {
@@ -173,7 +174,7 @@
         font-size: 0.95rem;
       }
 
-      nav a, .resume-button {
+      nav a {
         clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
       }
     }
@@ -187,7 +188,7 @@
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
-      <a class="resume-button" href="resume.pdf" download>Download Résumé</a>
+      <a href="resume.pdf" download>Download Résumé</a>
     </nav>
   </div>
 
