@@ -19,18 +19,18 @@
       overflow: hidden;
     }
 
-    /* Welcome popup */
     .welcome-popup {
       position: fixed;
       bottom: -100px;
       left: 50%;
       transform: translateX(-50%);
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: rgba(255, 255, 255, 0.08);
       color: #fff;
       padding: 1rem 2rem;
       border-radius: 8px;
       backdrop-filter: blur(6px);
       opacity: 0;
+      font-weight: 600;
       animation: slideUpFade 1.5s ease-out 0.5s forwards, hidePopup 1s ease-in 6s forwards;
       z-index: 9999;
       font-size: 0.95rem;
@@ -55,26 +55,30 @@
       top: 0;
       width: 100%;
       z-index: 1000;
-      background: #1c1c1c;
+      padding: 1rem;
+      background: transparent;
     }
 
     header {
       text-align: center;
       padding: 2rem 1rem 1rem;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      background: #1c1c1c;
+      border-radius: 20px 20px 0 0;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
     }
 
     header h1 {
-      font-size: 2rem;
+      font-size: 2.2rem;
+      color: #ff6b6b;
+      text-shadow: 0 0 5px #ff6b6b, 0 0 10px #ff4757;
       background: linear-gradient(
         120deg,
-        #e63946 0%,
+        #ff6b6b 0%,
         #ffffff 15%,
-        #e63946 30%,
-        #e63946 100%
+        #ff6b6b 30%,
+        #ff6b6b 100%
       );
       background-size: 200% auto;
-      color: #fff;
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -92,7 +96,7 @@
 
     header p {
       margin-top: 0.5rem;
-      color: #ccc;
+      color: #ddd;
     }
 
     nav {
@@ -100,7 +104,9 @@
       justify-content: center;
       gap: 1rem;
       padding: 1rem;
-      background: #111;
+      background: #141414;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     }
 
     nav a {
@@ -120,7 +126,7 @@
 
     .scroll-container {
       position: absolute;
-      top: 150px;
+      top: 180px;
       bottom: 0;
       left: 0;
       right: 0;
@@ -133,7 +139,7 @@
 
     section {
       min-width: 100vw;
-      height: calc(100vh - 150px);
+      height: calc(100vh - 180px);
       padding: 3rem 2rem;
       scroll-snap-align: start;
       flex-shrink: 0;
@@ -195,6 +201,6 @@
     </section>
   </div>
 
-  <div class="welcome-popup">Welcome to my profile</div>
+  <div class="welcome-popup">Welcome to my profile!</div>
 </body>
 </html>
