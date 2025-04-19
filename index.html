@@ -96,26 +96,28 @@
     }
 
     .scroll-container {
-      position: absolute;
-      top: 180px;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      overflow-x: hidden;
-      overflow-y: auto;
-      scroll-snap-type: y mandatory;
-      scroll-behavior: smooth;
-    }
+  position: absolute;
+  top: 180px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+}
 
-    section {
-      width: 100%;
-      height: 100vh;
-      scroll-snap-align: start;
-      padding: 2.5rem 1.5rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+section {
+  flex: 0 0 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+  padding: 2rem 1rem;
+}
 
     section:nth-child(even) {
       background: #1c1c1c;
