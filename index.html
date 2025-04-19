@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>José A. Santiago Norat | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700&display=swap" rel="stylesheet" />
   <style>
     * {
       box-sizing: border-box;
@@ -30,13 +30,13 @@
       text-align: left;
       padding: 1.5rem 2rem 1rem;
       background: #1c1c1c;
-      box-shadow: 0 8px 16px rgba(0, 255, 255, 0.3);
+      box-shadow: 0 8px 16px rgba(0, 0, 50, 0.4);
     }
 
     header h1 {
       font-family: 'Syne', sans-serif;
       font-size: 2rem;
-      background: linear-gradient(120deg, #6fcaff, #ffffff, #6fcaff);
+      background: linear-gradient(120deg, #7ec8e3 0%, #ffffff 15%, #7ec8e3 30%, #7ec8e3 100%);
       background-size: 200% auto;
       background-clip: text;
       -webkit-background-clip: text;
@@ -46,8 +46,12 @@
     }
 
     @keyframes shine {
-      0% { background-position: -200% center; }
-      100% { background-position: 200% center; }
+      0% {
+        background-position: -200% center;
+      }
+      100% {
+        background-position: 200% center;
+      }
     }
 
     header p {
@@ -63,17 +67,17 @@
       gap: 0.5rem;
       padding: 1rem;
       background: #141414;
-      box-shadow: 0 8px 16px rgba(0, 255, 255, 0.2);
+      box-shadow: 0 8px 16px rgba(0, 0, 50, 0.3);
     }
 
     nav a {
       padding: 0.6rem 1.1rem;
-      background: #6fcaff;
+      background: #7ec8e3;
       color: white;
       text-decoration: none;
       border-radius: 12px;
       transition: all 0.3s ease;
-      box-shadow: 0 0 8px rgba(111, 202, 255, 0.6);
+      box-shadow: 0 0 8px rgba(126, 200, 227, 0.6);
       font-weight: bold;
       transform: skew(-15deg);
       font-size: 0.9rem;
@@ -87,77 +91,77 @@
     }
 
     nav a:hover {
-      background: #4fa7db;
+      background: #4ca0c4;
       transform: scale(1.05) skew(-15deg);
-    }
-
-    .lang-toggle {
-      position: fixed;
-      bottom: 15px;
-      right: 15px;
-      background: #6fcaff;
-      color: #000;
-      border: none;
-      padding: 0.5rem 0.8rem;
-      font-weight: bold;
-      border-radius: 6px;
-      cursor: pointer;
-      z-index: 1001;
-      box-shadow: 0 0 10px rgba(111, 202, 255, 0.5);
     }
 
     .scroll-container {
       position: absolute;
       top: 180px;
+      bottom: 0;
       left: 0;
-      display: flex;
-      overflow-x: auto;
+      right: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      scroll-snap-type: y mandatory;
       scroll-behavior: smooth;
-      scroll-snap-type: x mandatory;
-      width: 100vw;
     }
 
     section {
-      min-width: 100vw;
-      height: calc(100vh - 180px);
+      width: 100%;
+      height: 100vh;
+      scroll-snap-align: start;
+      padding: 2.5rem 1.5rem;
       display: flex;
       justify-content: center;
       align-items: center;
-      scroll-snap-align: start;
-      padding: 2rem 1rem;
-      background: #0e0e0e;
     }
 
     section:nth-child(even) {
-      background: #111;
+      background: #1c1c1c;
     }
 
     .content-box {
+      max-width: 800px;
       width: 100%;
-      max-width: 850px;
       background: #181818;
       padding: 1.5rem;
       border-radius: 10px;
-      box-shadow: 0 0 12px rgba(111, 202, 255, 0.25);
-      overflow-wrap: break-word;
+      box-shadow: 0 0 12px rgba(126, 200, 227, 0.2);
     }
 
     h2 {
-      color: #6fcaff;
-      font-size: 1.6rem;
+      color: #7ec8e3;
       margin-bottom: 1rem;
+      font-size: 1.6rem;
     }
 
     p, li {
       font-size: 1rem;
       line-height: 1.6;
+      margin-bottom: 1rem;
       color: #ddd;
-      margin-bottom: 0.8rem;
     }
 
     ul {
       list-style-type: disc;
       padding-left: 1.5rem;
+    }
+
+    .lang-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #7ec8e3;
+      color: #000;
+      border: none;
+      border-radius: 20px;
+      padding: 0.5rem 0.9rem;
+      cursor: pointer;
+      font-weight: bold;
+      font-family: 'Syne', sans-serif;
+      z-index: 9999;
+      box-shadow: 0 0 10px rgba(126, 200, 227, 0.6);
     }
 
     @media (max-width: 768px) {
@@ -176,7 +180,7 @@
 
       nav a {
         font-size: 0.8rem;
-        padding: 0.5rem 0.8rem;
+        padding: 0.5rem 0.9rem;
       }
 
       h2 {
@@ -184,8 +188,7 @@
       }
 
       .content-box {
-        padding: 1rem;
-        margin: 0 0.5rem;
+        padding: 1.2rem;
       }
 
       p, li {
@@ -252,12 +255,14 @@
     </section>
   </div>
 
-  <button class="lang-toggle" onclick="toggleLanguage()">Español</button>
+  <button class="lang-toggle" id="langBtn" onclick="toggleLanguage()">ES</button>
 
   <script>
     let isSpanish = false;
+
     function toggleLanguage() {
       isSpanish = !isSpanish;
+      document.getElementById("langBtn").innerText = isSpanish ? "EN" : "ES";
 
       document.querySelector('#nav-about').innerText = isSpanish ? "Sobre Mí" : "About";
       document.querySelector('#nav-skills').innerText = isSpanish ? "Habilidades" : "Skills";
