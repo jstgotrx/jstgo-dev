@@ -1,3 +1,5 @@
+Don’t change the website 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +8,12 @@
   <title>José A. Santiago Norat | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: 'Segoe UI', sans-serif;
       background: #0e0e0e;
@@ -61,7 +68,8 @@
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     }
 
-    nav a {
+    nav a,
+    .dropbtn {
       padding: 0.6rem 1.1rem;
       background: #7fcdff;
       color: black;
@@ -72,16 +80,63 @@
       font-weight: bold;
       transform: skew(-15deg);
       font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
     }
 
-    nav a span {
+    nav a span,
+    .dropbtn span {
       display: inline-block;
       transform: skew(15deg);
       font-family: 'Syne', sans-serif;
       font-weight: 600;
     }
 
-    nav a:hover {
+    nav a:hover,
+    .dropbtn:hover {
+      background: #52a8d8;
+      transform: scale(1.05) skew(-15deg);
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #141414;
+      box-shadow: 0 0 10px rgba(127, 205, 255, 0.2);
+      border-radius: 10px;
+      z-index: 1001;
+      margin-top: 0.5rem;
+      min-width: 180px;
+    }
+
+    .dropdown-content a {
+      display: block;
+      margin: 0.2rem 0;
+      padding: 0.6rem 1.1rem;
+      background: #7fcdff;
+      color: black;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      transform: skew(-15deg);
+      font-size: 0.85rem;
+      transition: background 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 0 6px rgba(127, 205, 255, 0.3);
+    }
+
+    .dropdown-content a span {
+      display: inline-block;
+      transform: skew(15deg);
+      font-family: 'Syne', sans-serif;
+      font-weight: 600;
+    }
+
+    .dropdown-content a:hover {
       background: #52a8d8;
       transform: scale(1.05) skew(-15deg);
     }
@@ -167,11 +222,26 @@
     }
 
     @media (max-width: 768px) {
-      .content-box { padding: 1rem; }
-      p, li { font-size: 0.95rem; }
-      h2 { font-size: 1.4rem; }
-      nav a { font-size: 0.8rem; }
-      header h1 { font-size: 1.6rem; }
+      .content-box {
+        padding: 1rem;
+      }
+
+      p, li {
+        font-size: 0.95rem;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+      }
+
+      nav a,
+      .dropbtn {
+        font-size: 0.8rem;
+      }
+
+      header h1 {
+        font-size: 1.6rem;
+      }
     }
   </style>
 </head>
@@ -188,16 +258,27 @@
       <a href="#" onclick="showSlide(1)"><span id="btnSkills">Skills</span></a>
       <a href="#" onclick="showSlide(2)"><span id="btnExperience">Experience</span></a>
       <a href="#" onclick="showSlide(3)"><span id="btnContact">Contact</span></a>
+
+      <!-- Dropdown -->
+      <div class="dropdown">
+        <button class="dropbtn" onclick="toggleDropdown()"><span id="btnInfo">Information</span></button>
+        <div class="dropdown-content" id="dropdownContent">
+          <a href="#" onclick="showSlide(4)"><span>Certifications</span></a>
+          <a href="#" onclick="showSlide(5)"><span>Testimonials</span></a>
+        </div>
+      </div>
     </nav>
   </div>
 
+  <!-- About Slide -->
   <div class="slide active">
     <div class="content-box">
       <h2 id="aboutTitle">About Me</h2>
-      <p id="aboutText">I'm José, a front-end developer and computer science student from Coamo, Puerto Rico. I specialize in building responsive web apps with a focus on UI/UX, performance, and maintainability. I also have experience in algorithms, digital marketing, and collaborating in team-based environments. I'm passionate about solving real-world problems through clean and modern code. I also love photography, and I’ve built gaming computers myself — I can troubleshoot and fix them with ease. I love English as much as I love Spanish. I'm also considering studying car mechanics and learning how to scan vehicle computers.</p>
+      <p id="aboutText">I'm José, a front-end developer and computer science student from Coamo, Puerto Rico. I specialize in building responsive web apps with a focus on UI/UX, performance, and maintainability. I also have experience in algorithms, digital marketing, and collaborating in team-based environments. I'm passionate about solving real-world problems through clean and modern code.</p>
     </div>
   </div>
 
+  <!-- Skills Slide -->
   <div class="slide">
     <div class="content-box">
       <h2 id="skillsTitle">Skills</h2>
@@ -209,31 +290,44 @@
         <li>Basic Backend (Node, Firebase)</li>
         <li>Algorithm Design</li>
         <li>SEO & Digital Marketing</li>
-        <li>Computer Troubleshooting & Custom Builds</li>
-        <li>Photography</li>
       </ul>
     </div>
   </div>
 
+  <!-- Experience Slide -->
   <div class="slide">
     <div class="content-box">
       <h2 id="expTitle">Experience & Education</h2>
       <p><strong>High School (2018–2022)</strong><br> Graduated in 2022 and started Computer Science at UPR.</p>
       <p><strong>Bachelor’s Degree (2022–2024)</strong><br> CS focus on frontend, marketing & real-world projects.</p>
-      <p><strong>Coding Bootcamp – UPR Ponce</strong><br> Completed a bootcamp to sharpen frontend and programming skills.</p>
-      <p><strong>Job Shadowing – CooperVision Puerto Rico</strong><br> Observed and learned from professionals in a real tech work environment.</p>
-      <p><strong>Job Shadowing – PSHU Ponce Puerto Rico</strong><br> Gained insights into medical and IT data systems.</p>
       <p><strong>Data Manager – Hospital (2022)</strong><br> Managed sensitive medical records efficiently.</p>
       <p><strong>Receptionist – Nursing Home</strong><br> Front desk operations and customer service.</p>
     </div>
   </div>
 
+  <!-- Contact Slide -->
   <div class="slide">
     <div class="content-box">
       <h2 id="contactTitle">Contact</h2>
       <p id="emailText">Email: <a href="mailto:joc.stgo27@gmail.com">joc.stgo27@gmail.com</a></p>
       <p id="phoneText">Phone: <a href="tel:7874547779">787-454-7779</a></p>
       <p id="locationText">Location: Coamo, Puerto Rico</p>
+    </div>
+  </div>
+
+  <!-- Certifications Slide -->
+  <div class="slide">
+    <div class="content-box">
+      <h2>Certifications</h2>
+      <p>Here you'll see my Google, Meta, and freeCodeCamp certifications.</p>
+    </div>
+  </div>
+
+  <!-- Testimonials Slide -->
+  <div class="slide">
+    <div class="content-box">
+      <h2>Testimonials</h2>
+      <p>What others say about me. Feedback and quotes will go here.</p>
     </div>
   </div>
 
@@ -245,7 +339,19 @@
       slides.forEach((slide, i) => {
         slide.classList.toggle('active', i === index);
       });
+      document.getElementById("dropdownContent").style.display = "none"; // Close dropdown
     }
+
+    function toggleDropdown() {
+      const dropdown = document.getElementById("dropdownContent");
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    window.addEventListener("click", function (e) {
+      if (!e.target.closest(".dropdown")) {
+        document.getElementById("dropdownContent").style.display = "none";
+      }
+    });
 
     const langBtn = document.getElementById("langBtn");
     let isEnglish = true;
@@ -258,16 +364,17 @@
       document.getElementById("btnSkills").textContent = isEnglish ? "Skills" : "Habilidades";
       document.getElementById("btnExperience").textContent = isEnglish ? "Experience" : "Experiencia";
       document.getElementById("btnContact").textContent = isEnglish ? "Contact" : "Contacto";
+      document.getElementById("btnInfo").textContent = isEnglish ? "Information" : "Información";
 
       document.getElementById("aboutTitle").textContent = isEnglish ? "About Me" : "Sobre Mí";
       document.getElementById("aboutText").textContent = isEnglish
-        ? "I'm José, a front-end developer and computer science student from Coamo, Puerto Rico. I specialize in building responsive web apps with a focus on UI/UX, performance, and maintainability. I also have experience in algorithms, digital marketing, and collaborating in team-based environments. I'm passionate about solving real-world problems through clean and modern code. I also love photography, and I’ve built gaming computers myself — I can troubleshoot and fix them with ease. I love English as much as I love Spanish. I'm also considering studying car mechanics and learning how to scan vehicle computers."
-        : "Soy José, desarrollador front-end y estudiante de informática de Coamo, Puerto Rico. Me especializo en crear aplicaciones web responsivas con enfoque en UI/UX, rendimiento y mantenibilidad. También tengo experiencia en algoritmos, marketing digital y trabajo en equipo. Me apasiona resolver problemas reales con código limpio y moderno. También me encanta la fotografía, y he construido computadoras de juegos por mi cuenta — puedo solucionarlas y arreglarlas con facilidad. Amo tanto el inglés como el español. También estoy considerando estudiar mecánica automotriz y aprender a escanear computadoras de vehículos.";
+        ? "I'm José, a front-end developer and computer science student from Coamo, Puerto Rico. I specialize in building responsive web apps with a focus on UI/UX, performance, and maintainability. I also have experience in algorithms, digital marketing, and collaborating in team-based environments. I'm passionate about solving real-world problems through clean and modern code."
+        : "Soy José, desarrollador front-end y estudiante de informática de Coamo, Puerto Rico. Me especializo en crear aplicaciones web responsivas con enfoque en UI/UX, rendimiento y mantenibilidad. También tengo experiencia en algoritmos, marketing digital y trabajo en equipo. Me apasiona resolver problemas reales con código limpio y moderno.";
 
       document.getElementById("skillsTitle").textContent = isEnglish ? "Skills" : "Habilidades";
       document.getElementById("skillsList").innerHTML = isEnglish
-        ? `<li>HTML, CSS, JavaScript</li><li>React, Vue</li><li>Responsive Design & UI/UX</li><li>Git & GitHub</li><li>Basic Backend (Node, Firebase)</li><li>Algorithm Design</li><li>SEO & Digital Marketing</li><li>Computer Troubleshooting & Custom Builds</li><li>Photography</li>`
-        : `<li>HTML, CSS, JavaScript</li><li>React, Vue</li><li>Diseño responsivo & UI/UX</li><li>Git & GitHub</li><li>Backend básico (Node, Firebase)</li><li>Diseño de algoritmos</li><li>SEO & Marketing Digital</li><li>Solución de problemas de computadoras & construcción personalizada</li><li>Fotografía</li>`;
+        ? `<li>HTML, CSS, JavaScript</li><li>React, Vue</li><li>Responsive Design & UI/UX</li><li>Git & GitHub</li><li>Basic Backend (Node, Firebase)</li><li>Algorithm Design</li><li>SEO & Digital Marketing</li>`
+        : `<li>HTML, CSS, JavaScript</li><li>React, Vue</li><li>Diseño responsivo & UI/UX</li><li>Git & GitHub</li><li>Backend básico (Node, Firebase)</li><li>Diseño de algoritmos</li><li>SEO & Marketing Digital</li>`;
 
       document.getElementById("expTitle").textContent = isEnglish ? "Experience & Education" : "Experiencia y Educación";
       document.getElementById("contactTitle").textContent = isEnglish ? "Contact" : "Contacto";
