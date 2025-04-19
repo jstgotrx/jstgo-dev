@@ -66,8 +66,7 @@
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     }
 
-    nav a,
-    .dropbtn {
+    nav a {
       padding: 0.6rem 1.1rem;
       background: #7fcdff;
       color: black;
@@ -78,63 +77,16 @@
       font-weight: bold;
       transform: skew(-15deg);
       font-size: 0.9rem;
-      border: none;
-      cursor: pointer;
     }
 
-    nav a span,
-    .dropbtn span {
+    nav a span {
       display: inline-block;
       transform: skew(15deg);
       font-family: 'Syne', sans-serif;
       font-weight: 600;
     }
 
-    nav a:hover,
-    .dropbtn:hover {
-      background: #52a8d8;
-      transform: scale(1.05) skew(-15deg);
-    }
-
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #141414;
-      box-shadow: 0 0 10px rgba(127, 205, 255, 0.2);
-      border-radius: 10px;
-      z-index: 1001;
-      margin-top: 0.5rem;
-      min-width: 180px;
-    }
-
-    .dropdown-content a {
-      display: block;
-      margin: 0.2rem 0;
-      padding: 0.6rem 1.1rem;
-      background: #7fcdff;
-      color: black;
-      text-decoration: none;
-      border-radius: 10px;
-      font-weight: bold;
-      transform: skew(-15deg);
-      font-size: 0.85rem;
-      transition: background 0.3s ease, transform 0.3s ease;
-      box-shadow: 0 0 6px rgba(127, 205, 255, 0.3);
-    }
-
-    .dropdown-content a span {
-      display: inline-block;
-      transform: skew(15deg);
-      font-family: 'Syne', sans-serif;
-      font-weight: 600;
-    }
-
-    .dropdown-content a:hover {
+    nav a:hover {
       background: #52a8d8;
       transform: scale(1.05) skew(-15deg);
     }
@@ -232,8 +184,7 @@
         font-size: 1.4rem;
       }
 
-      nav a,
-      .dropbtn {
+      nav a {
         font-size: 0.8rem;
       }
 
@@ -256,19 +207,9 @@
       <a href="#" onclick="showSlide(1)"><span id="btnSkills">Skills</span></a>
       <a href="#" onclick="showSlide(2)"><span id="btnExperience">Experience</span></a>
       <a href="#" onclick="showSlide(3)"><span id="btnContact">Contact</span></a>
-
-      <!-- Dropdown -->
-      <div class="dropdown">
-        <button class="dropbtn" onclick="toggleDropdown()"><span id="btnInfo">Information</span></button>
-        <div class="dropdown-content" id="dropdownContent">
-          <a href="#" onclick="showSlide(4)"><span>Certifications</span></a>
-          <a href="#" onclick="showSlide(5)"><span>Testimonials</span></a>
-        </div>
-      </div>
     </nav>
   </div>
 
-  <!-- About Slide -->
   <div class="slide active">
     <div class="content-box">
       <h2 id="aboutTitle">About Me</h2>
@@ -276,7 +217,6 @@
     </div>
   </div>
 
-  <!-- Skills Slide -->
   <div class="slide">
     <div class="content-box">
       <h2 id="skillsTitle">Skills</h2>
@@ -292,7 +232,6 @@
     </div>
   </div>
 
-  <!-- Experience Slide -->
   <div class="slide">
     <div class="content-box">
       <h2 id="expTitle">Experience & Education</h2>
@@ -303,54 +242,54 @@
     </div>
   </div>
 
-  <!-- Contact Slide -->
   <div class="slide">
     <div class="content-box">
       <h2 id="contactTitle">Contact</h2>
       <p id="emailText">Email: <a href="mailto:joc.stgo27@gmail.com">joc.stgo27@gmail.com</a></p>
-      <p id="phoneText">Phone: <a href="tel:+17874547779">787-454-7779</a></p>
+      <p id="phoneText">Phone: <a href="tel:7874547779">787-454-7779</a></p>
+      <p id="locationText">Location: Coamo, Puerto Rico</p>
     </div>
   </div>
 
-  <!-- Certifications Slide -->
-  <div class="slide">
-    <div class="content-box">
-      <h2>Certifications</h2>
-      <ul>
-        <li>Google Digital Marketing & E-commerce (2024)</li>
-        <li>freeCodeCamp Web Development (2024)</li>
-        <li>Meta Front-End Developer (2024)</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Testimonials Slide -->
-  <div class="slide">
-    <div class="content-box">
-      <h2>Testimonials</h2>
-      <p>"José has a knack for turning ideas into functional websites with great user experiences. I had the pleasure of working with him, and his coding skills are excellent!"</p>
-      <p>- Alex, Project Manager</p>
-    </div>
-  </div>
+  <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">ES</button>
 
   <script>
-    let currentSlide = 0;
-
+    const slides = document.querySelectorAll('.slide');
     function showSlide(index) {
-      const slides = document.querySelectorAll('.slide');
-      slides[currentSlide].classList.remove('active');
-      currentSlide = index;
-      slides[currentSlide].classList.add('active');
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
     }
 
-    function toggleDropdown() {
-      const dropdownContent = document.getElementById("dropdownContent");
-      dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
-    }
+    const langBtn = document.getElementById("langBtn");
+    let isEnglish = true;
 
-    setTimeout(() => {
-      document.getElementById('welcomePopup').style.display = 'none';
-    }, 4000);
+    function toggleLanguage() {
+      isEnglish = !isEnglish;
+      langBtn.textContent = isEnglish ? "ES" : "EN";
+
+      document.getElementById("btnAbout").textContent = isEnglish ? "About" : "Sobre mí";
+      document.getElementById("btnSkills").textContent = isEnglish ? "Skills" : "Habilidades";
+      document.getElementById("btnExperience").textContent = isEnglish ? "Experience" : "Experiencia";
+      document.getElementById("btnContact").textContent = isEnglish ? "Contact" : "Contacto";
+
+      document.getElementById("aboutTitle").textContent = isEnglish ? "About Me" : "Sobre Mí";
+      document.getElementById("aboutText").textContent = isEnglish
+        ? "I'm José, a front-end developer and computer science student from Coamo, Puerto Rico. I specialize in building responsive web apps with a focus on UI/UX, performance, and maintainability. I also have experience in algorithms, digital marketing, and collaborating in team-based environments. I'm passionate about solving real-world problems through clean and modern code."
+        : "Soy José, desarrollador front-end y estudiante de informática de Coamo, Puerto Rico. Me especializo en crear aplicaciones web responsivas con enfoque en UI/UX, rendimiento y mantenibilidad. También tengo experiencia en algoritmos, marketing digital y trabajo en equipo. Me apasiona resolver problemas reales con código limpio y moderno.";
+
+      document.getElementById("skillsTitle").textContent = isEnglish ? "Skills" : "Habilidades";
+      document.getElementById("skillsList").innerHTML = isEnglish
+        ? `<li>HTML, CSS, JavaScript</li><li>React, Vue</li><li>Responsive Design & UI/UX</li><li>Git & GitHub</li><li>Basic Backend (Node, Firebase)</li><li>Algorithm Design</li><li>SEO & Digital Marketing</li>`
+        : `<li>HTML, CSS, JavaScript</li><li>React, Vue</li><li>Diseño responsivo & UI/UX</li><li>Git & GitHub</li><li>Backend básico (Node, Firebase)</li><li>Diseño de algoritmos</li><li>SEO & Marketing Digital</li>`;
+
+      document.getElementById("expTitle").textContent = isEnglish ? "Experience & Education" : "Experiencia y Educación";
+      document.getElementById("contactTitle").textContent = isEnglish ? "Contact" : "Contacto";
+      document.getElementById("emailText").innerHTML = isEnglish ? 'Email: <a href="mailto:joc.stgo27@gmail.com">joc.stgo27@gmail.com</a>' : 'Correo: <a href="mailto:joc.stgo27@gmail.com">joc.stgo27@gmail.com</a>';
+      document.getElementById("phoneText").innerHTML = isEnglish ? 'Phone: <a href="tel:7874547779">787-454-7779</a>' : 'Teléfono: <a href="tel:7874547779">787-454-7779</a>';
+      document.getElementById("locationText").textContent = isEnglish ? "Location: Coamo, Puerto Rico" : "Ubicación: Coamo, Puerto Rico";
+      document.getElementById("subtitle").textContent = isEnglish ? "Front-End Developer & Computer Science Student" : "Desarrollador Front-End y Estudiante de Informática";
+    }
   </script>
 </body>
-</html>
+</html> 
