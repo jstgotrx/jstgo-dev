@@ -66,7 +66,8 @@
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     }
 
-    nav a {
+    nav a,
+    .dropbtn {
       padding: 0.6rem 1.1rem;
       background: #7fcdff;
       color: black;
@@ -77,16 +78,63 @@
       font-weight: bold;
       transform: skew(-15deg);
       font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
     }
 
-    nav a span {
+    nav a span,
+    .dropbtn span {
       display: inline-block;
       transform: skew(15deg);
       font-family: 'Syne', sans-serif;
       font-weight: 600;
     }
 
-    nav a:hover {
+    nav a:hover,
+    .dropbtn:hover {
+      background: #52a8d8;
+      transform: scale(1.05) skew(-15deg);
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #141414;
+      box-shadow: 0 0 10px rgba(127, 205, 255, 0.2);
+      border-radius: 10px;
+      z-index: 1001;
+      margin-top: 0.5rem;
+      min-width: 180px;
+    }
+
+    .dropdown-content a {
+      display: block;
+      margin: 0.2rem 0;
+      padding: 0.6rem 1.1rem;
+      background: #7fcdff;
+      color: black;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      transform: skew(-15deg);
+      font-size: 0.85rem;
+      transition: background 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 0 6px rgba(127, 205, 255, 0.3);
+    }
+
+    .dropdown-content a span {
+      display: inline-block;
+      transform: skew(15deg);
+      font-family: 'Syne', sans-serif;
+      font-weight: 600;
+    }
+
+    .dropdown-content a:hover {
       background: #52a8d8;
       transform: scale(1.05) skew(-15deg);
     }
@@ -184,7 +232,8 @@
         font-size: 1.4rem;
       }
 
-      nav a {
+      nav a,
+      .dropbtn {
         font-size: 0.8rem;
       }
 
@@ -207,9 +256,19 @@
       <a href="#" onclick="showSlide(1)"><span id="btnSkills">Skills</span></a>
       <a href="#" onclick="showSlide(2)"><span id="btnExperience">Experience</span></a>
       <a href="#" onclick="showSlide(3)"><span id="btnContact">Contact</span></a>
+
+      <!-- Dropdown -->
+      <div class="dropdown">
+        <button class="dropbtn" onclick="toggleDropdown()"><span id="btnInfo">Information</span></button>
+        <div class="dropdown-content" id="dropdownContent">
+          <a href="#" onclick="showSlide(4)"><span>Certifications</span></a>
+          <a href="#" onclick="showSlide(5)"><span>Testimonials</span></a>
+        </div>
+      </div>
     </nav>
   </div>
 
+  <!-- About Slide -->
   <div class="slide active">
     <div class="content-box">
       <h2 id="aboutTitle">About Me</h2>
@@ -217,6 +276,7 @@
     </div>
   </div>
 
+  <!-- Skills Slide -->
   <div class="slide">
     <div class="content-box">
       <h2 id="skillsTitle">Skills</h2>
@@ -232,6 +292,7 @@
     </div>
   </div>
 
+  <!-- Experience Slide -->
   <div class="slide">
     <div class="content-box">
       <h2 id="expTitle">Experience & Education</h2>
@@ -242,12 +303,29 @@
     </div>
   </div>
 
+  <!-- Contact Slide -->
   <div class="slide">
     <div class="content-box">
       <h2 id="contactTitle">Contact</h2>
       <p id="emailText">Email: <a href="mailto:joc.stgo27@gmail.com">joc.stgo27@gmail.com</a></p>
       <p id="phoneText">Phone: <a href="tel:7874547779">787-454-7779</a></p>
       <p id="locationText">Location: Coamo, Puerto Rico</p>
+    </div>
+  </div>
+
+  <!-- Certifications Slide -->
+  <div class="slide">
+    <div class="content-box">
+      <h2>Certifications</h2>
+      <p>Here you'll see my Google, Meta, and freeCodeCamp certifications.</p>
+    </div>
+  </div>
+
+  <!-- Testimonials Slide -->
+  <div class="slide">
+    <div class="content-box">
+      <h2>Testimonials</h2>
+      <p>What others say about me. Feedback and quotes will go here.</p>
     </div>
   </div>
 
@@ -259,7 +337,19 @@
       slides.forEach((slide, i) => {
         slide.classList.toggle('active', i === index);
       });
+      document.getElementById("dropdownContent").style.display = "none"; // Close dropdown
     }
+
+    function toggleDropdown() {
+      const dropdown = document.getElementById("dropdownContent");
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    window.addEventListener("click", function (e) {
+      if (!e.target.closest(".dropdown")) {
+        document.getElementById("dropdownContent").style.display = "none";
+      }
+    });
 
     const langBtn = document.getElementById("langBtn");
     let isEnglish = true;
@@ -272,6 +362,7 @@
       document.getElementById("btnSkills").textContent = isEnglish ? "Skills" : "Habilidades";
       document.getElementById("btnExperience").textContent = isEnglish ? "Experience" : "Experiencia";
       document.getElementById("btnContact").textContent = isEnglish ? "Contact" : "Contacto";
+      document.getElementById("btnInfo").textContent = isEnglish ? "Information" : "Información";
 
       document.getElementById("aboutTitle").textContent = isEnglish ? "About Me" : "Sobre Mí";
       document.getElementById("aboutText").textContent = isEnglish
