@@ -16,7 +16,7 @@
       font-family: 'Segoe UI', sans-serif;
       background: #0e0e0e;
       color: #fff;
-      overflow-x: hidden;
+      overflow: hidden;
     }
 
     .header-nav-wrapper {
@@ -36,7 +36,13 @@
     header h1 {
       font-family: 'Syne', sans-serif;
       font-size: 2rem;
-      background: linear-gradient(120deg, #ff6b6b 0%, #ffffff 15%, #ff6b6b 30%, #ff6b6b 100%);
+      background: linear-gradient(
+        120deg,
+        #ff6b6b 0%,
+        #ffffff 15%,
+        #ff6b6b 30%,
+        #ff6b6b 100%
+      );
       background-size: 200% auto;
       background-clip: text;
       -webkit-background-clip: text;
@@ -46,8 +52,12 @@
     }
 
     @keyframes shine {
-      0% { background-position: -200% center; }
-      100% { background-position: 200% center; }
+      0% {
+        background-position: -200% center;
+      }
+      100% {
+        background-position: 200% center;
+      }
     }
 
     header p {
@@ -94,24 +104,23 @@
     .scroll-container {
       position: absolute;
       top: 180px;
-      bottom: 0;
       left: 0;
       right: 0;
+      height: calc(100vh - 180px);
       display: flex;
       overflow-x: auto;
+      overflow-y: hidden;
       scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
     }
 
     section {
       scroll-snap-align: start;
-      flex: 0 0 100vw;
-      min-height: calc(100vh - 140px);
+      min-width: 100vw;
+      padding: 2.5rem 1.5rem;
       display: flex;
       justify-content: center;
-      align-items: start;
-      padding: 4rem 1.5rem 2rem;
-      overflow-y: auto;
+      align-items: center;
     }
 
     section:nth-child(even) {
@@ -145,8 +154,29 @@
       padding-left: 1.5rem;
     }
 
-    a {
-      color: #ff6b6b;
+    /* WELCOME POPUP */
+    .welcome-popup {
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #1a1a1a;
+      padding: 2rem 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
+      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem;
+      color: #fff;
+      z-index: 9999;
+      opacity: 0;
+      animation: fadeInOut 3.5s forwards;
+    }
+
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: translate(-50%, -60%); }
+      10% { opacity: 1; transform: translate(-50%, -50%); }
+      90% { opacity: 1; }
+      100% { opacity: 0; transform: translate(-50%, -40%); }
     }
 
     @media (max-width: 768px) {
@@ -183,6 +213,8 @@
   </style>
 </head>
 <body>
+  <div class="welcome-popup">Welcome to my website!</div>
+
   <div class="header-nav-wrapper">
     <header>
       <h1>José A. Santiago Norat</h1>
@@ -198,12 +230,12 @@
   </div>
 
   <div class="scroll-container">
-<section id="about">
-  <div class="content-box">
-    <h2>About Me</h2>
-    <p>I'm José, a front-end developer and computer science student from Coamo, Puerto Rico. I specialize in building responsive, high-performance web applications using modern technologies. With a strong foundation in computer science, I understand both the front-end and the logic behind the scenes. I'm passionate about solving complex problems, improving user experiences, and continuously learning new tools and frameworks. My background in data management and customer-facing roles also helps me communicate well with both technical and non-technical teams.</p>
-  </div>
-</section>
+    <section id="about">
+      <div class="content-box">
+        <h2>About Me</h2>
+        <p>I'm José, a front-end developer and computer science student from Coamo, Puerto Rico. I specialize in building responsive, visually impactful websites using modern front-end technologies. I thrive in fast-paced environments, solve problems through clean code, and aim to contribute meaningfully to dynamic IT departments. I’m also skilled in debugging, UX design, and communicating technical ideas to non-technical stakeholders.</p>
+      </div>
+    </section>
 
     <section id="skills">
       <div class="content-box">
