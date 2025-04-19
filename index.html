@@ -19,6 +19,61 @@
       overflow: hidden;
     }
 
+    .circuit-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://www.transparenttextures.com/patterns/circuits.png');
+      background-repeat: repeat;
+      opacity: 0.04;
+      z-index: 0;
+      animation: scrollBg 60s linear infinite;
+    }
+
+    @keyframes scrollBg {
+      from { background-position: 0 0; }
+      to { background-position: 1000px 1000px; }
+    }
+
+    .welcome-popup {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #101c2e;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(100, 200, 255, 0.4);
+      color: #aee3ff;
+      font-weight: bold;
+      z-index: 10000;
+      animation: fadeOut 6s ease forwards;
+    }
+
+    @keyframes fadeOut {
+      0% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { opacity: 0; display: none; }
+    }
+
+    .lang-toggle {
+      position: fixed;
+      top: 10px;
+      right: 15px;
+      z-index: 1001;
+      background: #66ccff;
+      color: #000;
+      padding: 0.3rem 0.6rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(102, 204, 255, 0.6);
+    }
+
     .header-nav-wrapper {
       position: fixed;
       top: 0;
@@ -29,20 +84,14 @@
     header {
       text-align: left;
       padding: 1.5rem 2rem 1rem;
-      background: #1c1c1c;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+      background: #1a1a1a;
+      box-shadow: 0 8px 16px rgba(0, 255, 255, 0.1);
     }
 
     header h1 {
       font-family: 'Syne', sans-serif;
       font-size: 2rem;
-      background: linear-gradient(
-        120deg,
-        #5ecbff 0%,
-        #ffffff 15%,
-        #5ecbff 30%,
-        #5ecbff 100%
-      );
+      background: linear-gradient(120deg, #66ffff 0%, #ffffff 20%, #66ffff 40%, #66ffff 100%);
       background-size: 200% auto;
       background-clip: text;
       -webkit-background-clip: text;
@@ -52,17 +101,13 @@
     }
 
     @keyframes shine {
-      0% {
-        background-position: -200% center;
-      }
-      100% {
-        background-position: 200% center;
-      }
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
     }
 
     header p {
       margin-top: 0.3rem;
-      color: #ccc;
+      color: #aaccee;
       font-size: 0.95rem;
     }
 
@@ -72,21 +117,21 @@
       justify-content: center;
       gap: 0.5rem;
       padding: 1rem;
-      background: #141414;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      background: #121212;
+      box-shadow: 0 8px 16px rgba(0, 0, 255, 0.2);
     }
 
     nav a {
       padding: 0.6rem 1.1rem;
-      background: #5ecbff;
-      color: #0e0e0e;
+      background: #66ccff;
+      color: #fff;
       text-decoration: none;
       border-radius: 12px;
       transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(102, 204, 255, 0.6);
       font-weight: bold;
       transform: skew(-15deg);
       font-size: 0.9rem;
-      box-shadow: 0 0 8px rgba(94, 203, 255, 0.6);
     }
 
     nav a span {
@@ -97,9 +142,8 @@
     }
 
     nav a:hover {
-      background: #37a6dd;
+      background: #3399cc;
       transform: scale(1.05) skew(-15deg);
-      box-shadow: 0 0 12px rgba(94, 203, 255, 0.8);
     }
 
     .scroll-container {
@@ -107,25 +151,28 @@
       top: 180px;
       left: 0;
       right: 0;
-      height: calc(100vh - 180px);
+      bottom: 0;
       display: flex;
       overflow-x: auto;
-      overflow-y: hidden;
-      scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      z-index: 1;
     }
 
     section {
-      scroll-snap-align: start;
       min-width: 100vw;
-      padding: 2.5rem 1.5rem;
+      height: calc(100vh - 180px);
+      padding: 2rem 1rem;
       display: flex;
       justify-content: center;
       align-items: center;
+      scroll-snap-align: start;
+      flex-shrink: 0;
+      background: #0e0e0e;
     }
 
     section:nth-child(even) {
-      background: #1c1c1c;
+      background: #151515;
     }
 
     .content-box {
@@ -134,11 +181,12 @@
       background: #181818;
       padding: 1.5rem;
       border-radius: 10px;
-      box-shadow: 0 0 12px rgba(94, 203, 255, 0.25);
+      box-shadow: 0 0 14px rgba(102, 204, 255, 0.2);
+      z-index: 2;
     }
 
     h2 {
-      color: #5ecbff;
+      color: #66ccff;
       margin-bottom: 1rem;
       font-size: 1.6rem;
     }
@@ -147,7 +195,7 @@
       font-size: 1rem;
       line-height: 1.6;
       margin-bottom: 1rem;
-      color: #ddd;
+      color: #cceeff;
     }
 
     ul {
@@ -155,29 +203,8 @@
       padding-left: 1.5rem;
     }
 
-    /* WELCOME POPUP */
-    .welcome-popup {
-      position: fixed;
-      top: 30%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: #1a1a1a;
-      padding: 2rem 2.5rem;
-      border-radius: 12px;
-      font-family: 'Syne', sans-serif;
-      font-size: 1.2rem;
-      color: #fff;
-      z-index: 9999;
-      opacity: 0;
-      animation: fadeInOut 3.5s forwards;
-      box-shadow: 0 0 18px rgba(94, 203, 255, 0.4);
-    }
-
-    @keyframes fadeInOut {
-      0% { opacity: 0; transform: translate(-50%, -60%); }
-      10% { opacity: 1; transform: translate(-50%, -50%); }
-      90% { opacity: 1; }
-      100% { opacity: 0; transform: translate(-50%, -40%); }
+    a {
+      color: #aee3ff;
     }
 
     @media (max-width: 768px) {
@@ -214,12 +241,14 @@
   </style>
 </head>
 <body>
+  <div class="circuit-bg"></div>
   <div class="welcome-popup">Welcome to my website!</div>
+  <button class="lang-toggle" onclick="toggleLang()">ES</button>
 
   <div class="header-nav-wrapper">
     <header>
       <h1>José A. Santiago Norat</h1>
-      <p>Front-End Developer & Computer Science Student</p>
+      <p id="role">Front-End Developer & Computer Science Student</p>
     </header>
     <nav>
       <a href="#about"><span>About</span></a>
@@ -233,15 +262,15 @@
   <div class="scroll-container">
     <section id="about">
       <div class="content-box">
-        <h2>About Me</h2>
-        <p>I'm José, a front-end developer and computer science student from Coamo, Puerto Rico. I specialize in building responsive, visually impactful websites using modern front-end technologies. I thrive in fast-paced environments, solve problems through clean code, and aim to contribute meaningfully to dynamic IT departments. I’m also skilled in debugging, UX design, and communicating technical ideas to non-technical stakeholders.</p>
+        <h2 id="about-title">About Me</h2>
+        <p id="about-text">I’m José, a front-end developer and computer science student based in Coamo, Puerto Rico. I focus on building responsive, interactive, and visually engaging web apps using modern technologies. I'm passionate about technology, UI/UX design, and solving complex problems with elegant code. I strive to grow within the IT field by contributing to innovative development teams and continuously improving my skills in real-world environments.</p>
       </div>
     </section>
 
     <section id="skills">
       <div class="content-box">
-        <h2>Skills</h2>
-        <ul>
+        <h2 id="skills-title">Skills</h2>
+        <ul id="skills-list">
           <li>HTML, CSS, JavaScript</li>
           <li>React or Vue frameworks</li>
           <li>Responsive Design & UI/UX</li>
@@ -255,29 +284,65 @@
 
     <section id="experience">
       <div class="content-box">
-        <h2>Experience & Education</h2>
-        <p><strong>High School Graduate (2018–2022)</strong><br>
-        Graduated in 2022 and began studying Computer Science at UPR.</p>
-
-        <p><strong>Bachelor’s Degree (2022–2024)</strong><br>
-        Currently pursuing a CS degree focused on web development and marketing.</p>
-
-        <p><strong>Data Manager – Hospital (2022)</strong><br>
-        Handled records and patient data before starting college.</p>
-
-        <p><strong>Receptionist – Nursing Home</strong><br>
-        Managed front desk operations and provided support to staff and visitors.</p>
+        <h2 id="exp-title">Experience & Education</h2>
+        <p id="exp-1"><strong>High School Graduate (2018–2022)</strong><br>Graduated in 2022 and began studying Computer Science at UPR.</p>
+        <p id="exp-2"><strong>Bachelor’s Degree (2022–2024)</strong><br>Currently pursuing a CS degree focused on web development and marketing.</p>
+        <p id="exp-3"><strong>Data Manager – Hospital (2022)</strong><br>Handled records and patient data before starting college.</p>
+        <p id="exp-4"><strong>Receptionist – Nursing Home</strong><br>Managed front desk operations and provided support to staff and visitors.</p>
       </div>
     </section>
 
     <section id="contact">
       <div class="content-box">
-        <h2>Contact</h2>
+        <h2 id="contact-title">Contact</h2>
         <p>Email: <a href="mailto:joc.stgo27@gmail.com">joc.stgo27@gmail.com</a></p>
         <p>Phone: <a href="tel:7874547779">787-454-7779</a></p>
-        <p>Location: Coamo, Puerto Rico</p>
+        <p id="location">Location: Coamo, Puerto Rico</p>
       </div>
     </section>
   </div>
+
+  <script>
+    let isSpanish = false;
+    function toggleLang() {
+      isSpanish = !isSpanish;
+      document.querySelector('.lang-toggle').textContent = isSpanish ? 'EN' : 'ES';
+
+      document.getElementById("role").textContent = isSpanish 
+        ? "Desarrollador Front-End y Estudiante de Ciencias de Computadoras"
+        : "Front-End Developer & Computer Science Student";
+
+      document.getElementById("about-title").textContent = isSpanish ? "Sobre Mí" : "About Me";
+      document.getElementById("about-text").textContent = isSpanish
+        ? "Soy José, desarrollador front-end y estudiante de informática de Coamo, Puerto Rico. Me enfoco en crear aplicaciones web responsivas, interactivas y visualmente atractivas. Me apasiona la tecnología, el diseño UI/UX y resolver problemas complejos con código limpio. Busco crecer en el campo de TI contribuyendo a equipos innovadores y mejorando mis habilidades en entornos reales."
+        : "I’m José, a front-end developer and computer science student based in Coamo, Puerto Rico. I focus on building responsive, interactive, and visually engaging web apps using modern technologies. I'm passionate about technology, UI/UX design, and solving complex problems with elegant code. I strive to grow within the IT field by contributing to innovative development teams and continuously improving my skills in real-world environments.";
+
+      document.getElementById("skills-title").textContent = isSpanish ? "Habilidades" : "Skills";
+      document.getElementById("skills-list").innerHTML = isSpanish
+        ? `<li>HTML, CSS, JavaScript</li>
+           <li>Frameworks como React o Vue</li>
+           <li>Diseño Responsivo & UI/UX</li>
+           <li>Git y GitHub</li>
+           <li>Conocimientos básicos de backend</li>
+           <li>Optimización de algoritmos</li>
+           <li>Herramientas de Marketing Digital</li>`
+        : `<li>HTML, CSS, JavaScript</li>
+           <li>React or Vue frameworks</li>
+           <li>Responsive Design & UI/UX</li>
+           <li>Git & GitHub</li>
+           <li>Basic backend knowledge</li>
+           <li>Algorithm Optimization</li>
+           <li>Digital Marketing Tools</li>`;
+
+      document.getElementById("exp-title").textContent = isSpanish ? "Experiencia y Educación" : "Experience & Education";
+      document.getElementById("exp-1").innerHTML = isSpanish ? "<strong>Graduado de Escuela Superior (2018–2022)</strong><br>Me gradué en 2022 y comencé estudios en Ciencias de Computadoras en la UPR." : "<strong>High School Graduate (2018–2022)</strong><br>Graduated in 2022 and began studying Computer Science at UPR.";
+      document.getElementById("exp-2").innerHTML = isSpanish ? "<strong>Bachillerato (2022–2024)</strong><br>Actualmente curso un bachillerato en informática enfocado en desarrollo web y mercadeo digital." : "<strong>Bachelor’s Degree (2022–2024)</strong><br>Currently pursuing a CS degree focused on web development and marketing.";
+      document.getElementById("exp-3").innerHTML = isSpanish ? "<strong>Gestor de Datos – Hospital (2022)</strong><br>Manejé registros y datos de pacientes antes de comenzar la universidad." : "<strong>Data Manager – Hospital (2022)</strong><br>Handled records and patient data before starting college.";
+      document.getElementById("exp-4").innerHTML = isSpanish ? "<strong>Recepcionista – Hogar de Ancianos</strong><br>Atendí el área de recepción y brindé apoyo a visitantes y personal." : "<strong>Receptionist – Nursing Home</strong><br>Managed front desk operations and provided support to staff and visitors.";
+
+      document.getElementById("contact-title").textContent = isSpanish ? "Contacto" : "Contact";
+      document.getElementById("location").textContent = isSpanish ? "Ubicación: Coamo, Puerto Rico" : "Location: Coamo, Puerto Rico";
+    }
+  </script>
 </body>
 </html>
