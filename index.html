@@ -1,5 +1,3 @@
-Don’t change the website 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -310,8 +308,7 @@ Don’t change the website
     <div class="content-box">
       <h2 id="contactTitle">Contact</h2>
       <p id="emailText">Email: <a href="mailto:joc.stgo27@gmail.com">joc.stgo27@gmail.com</a></p>
-      <p id="phoneText">Phone: <a href="tel:7874547779">787-454-7779</a></p>
-      <p id="locationText">Location: Coamo, Puerto Rico</p>
+      <p id="phoneText">Phone: <a href="tel:+17874547779">787-454-7779</a></p>
     </div>
   </div>
 
@@ -319,7 +316,11 @@ Don’t change the website
   <div class="slide">
     <div class="content-box">
       <h2>Certifications</h2>
-      <p>Here you'll see my Google, Meta, and freeCodeCamp certifications.</p>
+      <ul>
+        <li>Google Digital Marketing & E-commerce (2024)</li>
+        <li>freeCodeCamp Web Development (2024)</li>
+        <li>Meta Front-End Developer (2024)</li>
+      </ul>
     </div>
   </div>
 
@@ -327,62 +328,29 @@ Don’t change the website
   <div class="slide">
     <div class="content-box">
       <h2>Testimonials</h2>
-      <p>What others say about me. Feedback and quotes will go here.</p>
+      <p>"José has a knack for turning ideas into functional websites with great user experiences. I had the pleasure of working with him, and his coding skills are excellent!"</p>
+      <p>- Alex, Project Manager</p>
     </div>
   </div>
 
-  <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">ES</button>
-
   <script>
-    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
     function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-      });
-      document.getElementById("dropdownContent").style.display = "none"; // Close dropdown
+      const slides = document.querySelectorAll('.slide');
+      slides[currentSlide].classList.remove('active');
+      currentSlide = index;
+      slides[currentSlide].classList.add('active');
     }
 
     function toggleDropdown() {
-      const dropdown = document.getElementById("dropdownContent");
-      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+      const dropdownContent = document.getElementById("dropdownContent");
+      dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
     }
 
-    window.addEventListener("click", function (e) {
-      if (!e.target.closest(".dropdown")) {
-        document.getElementById("dropdownContent").style.display = "none";
-      }
-    });
-
-    const langBtn = document.getElementById("langBtn");
-    let isEnglish = true;
-
-    function toggleLanguage() {
-      isEnglish = !isEnglish;
-      langBtn.textContent = isEnglish ? "ES" : "EN";
-
-      document.getElementById("btnAbout").textContent = isEnglish ? "About" : "Sobre mí";
-      document.getElementById("btnSkills").textContent = isEnglish ? "Skills" : "Habilidades";
-      document.getElementById("btnExperience").textContent = isEnglish ? "Experience" : "Experiencia";
-      document.getElementById("btnContact").textContent = isEnglish ? "Contact" : "Contacto";
-      document.getElementById("btnInfo").textContent = isEnglish ? "Information" : "Información";
-
-      document.getElementById("aboutTitle").textContent = isEnglish ? "About Me" : "Sobre Mí";
-      document.getElementById("aboutText").textContent = isEnglish
-        ? "I'm José, a front-end developer and computer science student from Coamo, Puerto Rico. I specialize in building responsive web apps with a focus on UI/UX, performance, and maintainability. I also have experience in algorithms, digital marketing, and collaborating in team-based environments. I'm passionate about solving real-world problems through clean and modern code."
-        : "Soy José, desarrollador front-end y estudiante de informática de Coamo, Puerto Rico. Me especializo en crear aplicaciones web responsivas con enfoque en UI/UX, rendimiento y mantenibilidad. También tengo experiencia en algoritmos, marketing digital y trabajo en equipo. Me apasiona resolver problemas reales con código limpio y moderno.";
-
-      document.getElementById("skillsTitle").textContent = isEnglish ? "Skills" : "Habilidades";
-      document.getElementById("skillsList").innerHTML = isEnglish
-        ? `<li>HTML, CSS, JavaScript</li><li>React, Vue</li><li>Responsive Design & UI/UX</li><li>Git & GitHub</li><li>Basic Backend (Node, Firebase)</li><li>Algorithm Design</li><li>SEO & Digital Marketing</li>`
-        : `<li>HTML, CSS, JavaScript</li><li>React, Vue</li><li>Diseño responsivo & UI/UX</li><li>Git & GitHub</li><li>Backend básico (Node, Firebase)</li><li>Diseño de algoritmos</li><li>SEO & Marketing Digital</li>`;
-
-      document.getElementById("expTitle").textContent = isEnglish ? "Experience & Education" : "Experiencia y Educación";
-      document.getElementById("contactTitle").textContent = isEnglish ? "Contact" : "Contacto";
-      document.getElementById("emailText").innerHTML = isEnglish ? 'Email: <a href="mailto:joc.stgo27@gmail.com">joc.stgo27@gmail.com</a>' : 'Correo: <a href="mailto:joc.stgo27@gmail.com">joc.stgo27@gmail.com</a>';
-      document.getElementById("phoneText").innerHTML = isEnglish ? 'Phone: <a href="tel:7874547779">787-454-7779</a>' : 'Teléfono: <a href="tel:7874547779">787-454-7779</a>';
-      document.getElementById("locationText").textContent = isEnglish ? "Location: Coamo, Puerto Rico" : "Ubicación: Coamo, Puerto Rico";
-      document.getElementById("subtitle").textContent = isEnglish ? "Front-End Developer & Computer Science Student" : "Desarrollador Front-End y Estudiante de Informática";
-    }
+    setTimeout(() => {
+      document.getElementById('welcomePopup').style.display = 'none';
+    }, 4000);
   </script>
 </body>
 </html>
