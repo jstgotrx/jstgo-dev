@@ -3,97 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>José A. Santiago Norat | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700&display=swap" rel="stylesheet">
+  <title>José A. Santiago Norat - Portfolio</title>
   <style>
-    * {
-      box-sizing: border-box;
+    body, html {
       margin: 0;
       padding: 0;
-    }
-
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #0e0e0e;
-      color: #fff;
-      overflow: hidden;
-    }
-
-    .header-nav-wrapper {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-    }
-
-    header {
-      text-align: left;
-      padding: 1.5rem 2rem 1rem;
-      background: #1c1c1c;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-    }
-
-    header h1 {
-      font-family: 'Syne', sans-serif;
-      font-size: 2rem;
-      background: linear-gradient(120deg, #7fcdff 0%, #ffffff 15%, #7fcdff 30%, #7fcdff 100%);
-      background-size: 200% auto;
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: shine 10s linear infinite;
-      font-weight: bold;
-    }
-
-    @keyframes shine {
-      0% { background-position: -200% center; }
-      100% { background-position: 200% center; }
-    }
-
-    header p {
-      margin-top: 0.3rem;
-      color: #ccc;
-      font-size: 0.95rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #111;
+      color: white;
+      overflow-x: hidden;
     }
 
     nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      gap: 0.5rem;
-      padding: 1rem;
-      background: #141414;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      background-color: #000;
+      padding: 10px 0;
+      z-index: 1000;
     }
 
-    nav a,
-    .dropbtn {
-      padding: 0.6rem 1.1rem;
-      background: #7fcdff;
-      color: black;
+    nav a, .dropbtn {
+      color: white;
+      padding: 10px 20px;
       text-decoration: none;
-      border-radius: 12px;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 8px rgba(127, 205, 255, 0.6);
-      font-weight: bold;
-      transform: skew(-15deg);
-      font-size: 0.9rem;
+      background: #222;
+      margin: 0 5px;
       border: none;
       cursor: pointer;
+      font-weight: bold;
     }
 
-    nav a span,
-    .dropbtn span {
-      display: inline-block;
-      transform: skew(15deg);
-      font-family: 'Syne', sans-serif;
-      font-weight: 600;
-    }
-
-    nav a:hover,
-    .dropbtn:hover {
-      background: #52a8d8;
-      transform: scale(1.05) skew(-15deg);
+    nav a:hover, .dropbtn:hover {
+      background-color: #444;
     }
 
     .dropdown {
@@ -104,182 +48,90 @@
     .dropdown-content {
       display: none;
       position: absolute;
-      background-color: #141414;
-      box-shadow: 0 0 10px rgba(127, 205, 255, 0.2);
-      border-radius: 10px;
-      z-index: 1001;
-      margin-top: 0.5rem;
-      min-width: 180px;
+      background-color: #222;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
     }
 
     .dropdown-content a {
-      display: block;
-      margin: 0.2rem 0;
-      padding: 0.6rem 1.1rem;
-      background: #7fcdff;
-      color: black;
+      color: white;
+      padding: 12px 16px;
       text-decoration: none;
-      border-radius: 10px;
-      font-weight: bold;
-      transform: skew(-15deg);
-      font-size: 0.85rem;
-      transition: background 0.3s ease, transform 0.3s ease;
-      box-shadow: 0 0 6px rgba(127, 205, 255, 0.3);
-    }
-
-    .dropdown-content a span {
-      display: inline-block;
-      transform: skew(15deg);
-      font-family: 'Syne', sans-serif;
-      font-weight: 600;
+      display: block;
     }
 
     .dropdown-content a:hover {
-      background: #52a8d8;
-      transform: scale(1.05) skew(-15deg);
-    }
-
-    .slide {
-      width: 100vw;
-      height: calc(100vh - 180px);
-      overflow-y: auto;
-      position: absolute;
-      top: 180px;
-      left: 100vw;
-      transition: left 0.5s ease;
-      padding: 2rem 1rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .slide.active {
-      left: 0;
-    }
-
-    .content-box {
-      max-width: 800px;
-      width: 100%;
-      background: #181818;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 0 12px rgba(127, 205, 255, 0.25);
-    }
-
-    h2 {
-      color: #7fcdff;
-      margin-bottom: 1rem;
-      font-size: 1.6rem;
-    }
-
-    p, li {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 1rem;
-      color: #ddd;
-    }
-
-    ul {
-      list-style-type: disc;
-      padding-left: 1.5rem;
+      background-color: #444;
     }
 
     .lang-btn {
       position: fixed;
-      right: 1rem;
-      bottom: 1rem;
-      padding: 0.6rem 1rem;
-      background: #7fcdff;
-      color: black;
+      bottom: 10px;
+      right: 10px;
+      background-color: #222;
+      color: white;
       border: none;
-      border-radius: 10px;
-      font-weight: bold;
+      padding: 10px 15px;
       cursor: pointer;
-      box-shadow: 0 0 8px rgba(127, 205, 255, 0.4);
     }
 
-    .popup {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #181818;
-      color: #7fcdff;
-      padding: 1rem 2rem;
-      border-radius: 10px;
-      font-weight: bold;
-      box-shadow: 0 0 12px rgba(127, 205, 255, 0.6);
-      z-index: 2000;
-      animation: fadeOut 4s forwards;
+    .slide {
+      display: none;
+      height: 100vh;
+      width: 100vw;
+      padding: 80px 20px 20px 20px;
+      box-sizing: border-box;
     }
 
-    @keyframes fadeOut {
-      0% { opacity: 1; }
-      80% { opacity: 1; }
-      100% { opacity: 0; display: none; }
+    .slide.active {
+      display: block;
     }
 
-    @media (max-width: 768px) {
-      .content-box {
-        padding: 1rem;
-      }
+    h1, h2 {
+      font-family: 'Syne', sans-serif;
+      margin-bottom: 20px;
+    }
 
-      p, li {
-        font-size: 0.95rem;
-      }
+    .content-box {
+      background: #222;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
-      h2 {
-        font-size: 1.4rem;
-      }
-
-      nav a,
-      .dropbtn {
-        font-size: 0.8rem;
-      }
-
-      header h1 {
-        font-size: 1.6rem;
-      }
+    ul {
+      list-style: none;
+      padding-left: 0;
     }
   </style>
 </head>
 <body>
-  <div class="popup" id="welcomePopup">Welcome to my website!</div>
+  <nav>
+    <a href="#" onclick="showSlide(0)"><span id="btnAbout">About</span></a>
+    <a href="#" onclick="showSlide(1)"><span id="btnSkills">Skills</span></a>
+    <a href="#" onclick="showSlide(2)"><span id="btnExperience">Experience</span></a>
+    <a href="#" onclick="showSlide(3)"><span id="btnContact">Contact</span></a>
 
-  <div class="header-nav-wrapper">
-    <header>
-      <h1>José A. Santiago Norat</h1>
-      <p id="subtitle">Front-End Developer & Computer Science Student</p>
-    </header>
-    <nav>
-      <a href="#" onclick="showSlide(0)"><span id="btnAbout">About</span></a>
-      <a href="#" onclick="showSlide(1)"><span id="btnSkills">Skills</span></a>
-      <a href="#" onclick="showSlide(2)"><span id="btnExperience">Experience</span></a>
-      <a href="#" onclick="showSlide(3)"><span id="btnContact">Contact</span></a>
-
-      <!-- Dropdown -->
-      <div class="dropdown">
-        <button class="dropbtn" onclick="toggleDropdown()"><span id="btnInfo">Information</span></button>
-        <div class="dropdown-content" id="dropdownContent">
-          <a href="#" onclick="showSlide(4)"><span>Certifications</span></a>
-          <a href="#" onclick="showSlide(5)"><span>Testimonials</span></a>
-        </div>
+    <div class="dropdown">
+      <button class="dropbtn" onclick="toggleDropdown()"><span id="btnInfo">Information</span></button>
+      <div class="dropdown-content" id="dropdownContent">
+        <a href="#" onclick="showSlide(4)"><span id="btnCerts">Certifications</span></a>
+        <a href="#" onclick="showSlide(5)"><span id="btnTestimonials">Testimonials</span></a>
       </div>
-    </nav>
-  </div>
+    </div>
+  </nav>
 
-  <!-- About Slide -->
-  <div class="slide active">
+  <div class="slide active" id="slide0">
     <div class="content-box">
-      <h2 id="aboutTitle">About Me</h2>
-      <p id="aboutText">I'm José, a front-end developer and computer science student from Coamo, Puerto Rico. I specialize in building responsive web apps with a focus on UI/UX, performance, and maintainability. I also have experience in algorithms, digital marketing, and collaborating in team-based environments. I'm passionate about solving real-world problems through clean and modern code.</p>
+      <h1 id="aboutTitle">About Me</h1>
+      <p id="aboutText">I'm José, a front-end developer and computer science student from Coamo, Puerto Rico...</p>
     </div>
   </div>
-
-  <!-- Skills Slide -->
-  <div class="slide">
+  <div class="slide" id="slide1">
     <div class="content-box">
-      <h2 id="skillsTitle">Skills</h2>
+      <h1 id="skillsTitle">Skills</h1>
       <ul id="skillsList">
         <li>HTML, CSS, JavaScript</li>
         <li>React, Vue</li>
@@ -291,96 +143,31 @@
       </ul>
     </div>
   </div>
-
-  <!-- Experience Slide -->
-  <div class="slide">
+  <div class="slide" id="slide2">
     <div class="content-box">
-      <h2 id="expTitle">Experience & Education</h2>
-      <p><strong>High School (2018–2022)</strong><br> Graduated in 2022 and started Computer Science at UPR.</p>
-      <p><strong>Bachelor’s Degree (2022–2024)</strong><br> CS focus on frontend, marketing & real-world projects.</p>
-      <p><strong>Data Manager – Hospital (2022)</strong><br> Managed sensitive medical records efficiently.</p>
-      <p><strong>Receptionist – Nursing Home</strong><br> Front desk operations and customer service.</p>
+      <h1 id="expTitle">Experience & Education</h1>
+      <p>Content goes here.</p>
     </div>
   </div>
-
-  <!-- Contact Slide -->
-  <div class="slide">
+  <div class="slide" id="slide3">
     <div class="content-box">
-      <h2 id="contactTitle">Contact</h2>
+      <h1 id="contactTitle">Contact</h1>
       <p id="emailText">Email: <a href="mailto:joc.stgo27@gmail.com">joc.stgo27@gmail.com</a></p>
       <p id="phoneText">Phone: <a href="tel:7874547779">787-454-7779</a></p>
       <p id="locationText">Location: Coamo, Puerto Rico</p>
     </div>
   </div>
-
-  <!-- Certifications Slide -->
-  <div class="slide">
+  <div class="slide" id="slide4">
     <div class="content-box">
-      <h2>Certifications</h2>
-      <p>Here you'll see my Google, Meta, and freeCodeCamp certifications.</p>
+      <h1>Certifications</h1>
+      <p>Certs go here.</p>
     </div>
   </div>
-
-  <!-- Testimonials Slide -->
-  <div class="slide">
+  <div class="slide" id="slide5">
     <div class="content-box">
-      <h2>Testimonials</h2>
-      <p>What others say about me. Feedback and quotes will go here.</p>
+      <h1>Testimonials</h1>
+      <p>Quotes go here.</p>
     </div>
   </div>
 
   <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">ES</button>
-
-  <script>
-    const slides = document.querySelectorAll('.slide');
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-      });
-      document.getElementById("dropdownContent").style.display = "none"; // Close dropdown
-    }
-
-    function toggleDropdown() {
-      const dropdown = document.getElementById("dropdownContent");
-      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-    }
-
-    window.addEventListener("click", function (e) {
-      if (!e.target.closest(".dropdown")) {
-        document.getElementById("dropdownContent").style.display = "none";
-      }
-    });
-
-    const langBtn = document.getElementById("langBtn");
-    let isEnglish = true;
-
-    function toggleLanguage() {
-      isEnglish = !isEnglish;
-      langBtn.textContent = isEnglish ? "ES" : "EN";
-
-      document.getElementById("btnAbout").textContent = isEnglish ? "About" : "Sobre mí";
-      document.getElementById("btnSkills").textContent = isEnglish ? "Skills" : "Habilidades";
-      document.getElementById("btnExperience").textContent = isEnglish ? "Experience" : "Experiencia";
-      document.getElementById("btnContact").textContent = isEnglish ? "Contact" : "Contacto";
-      document.getElementById("btnInfo").textContent = isEnglish ? "Information" : "Información";
-
-      document.getElementById("aboutTitle").textContent = isEnglish ? "About Me" : "Sobre Mí";
-      document.getElementById("aboutText").textContent = isEnglish
-        ? "I'm José, a front-end developer and computer science student from Coamo, Puerto Rico. I specialize in building responsive web apps with a focus on UI/UX, performance, and maintainability. I also have experience in algorithms, digital marketing, and collaborating in team-based environments. I'm passionate about solving real-world problems through clean and modern code."
-        : "Soy José, desarrollador front-end y estudiante de informática de Coamo, Puerto Rico. Me especializo en crear aplicaciones web responsivas con enfoque en UI/UX, rendimiento y mantenibilidad. También tengo experiencia en algoritmos, marketing digital y trabajo en equipo. Me apasiona resolver problemas reales con código limpio y moderno.";
-
-      document.getElementById("skillsTitle").textContent = isEnglish ? "Skills" : "Habilidades";
-      document.getElementById("skillsList").innerHTML = isEnglish
-        ? `<li>HTML, CSS, JavaScript</li><li>React, Vue</li><li>Responsive Design & UI/UX</li><li>Git & GitHub</li><li>Basic Backend (Node, Firebase)</li><li>Algorithm Design</li><li>SEO & Digital Marketing</li>`
-        : `<li>HTML, CSS, JavaScript</li><li>React, Vue</li><li>Diseño responsivo & UI/UX</li><li>Git & GitHub</li><li>Backend básico (Node, Firebase)</li><li>Diseño de algoritmos</li><li>SEO & Marketing Digital</li>`;
-
-      document.getElementById("expTitle").textContent = isEnglish ? "Experience & Education" : "Experiencia y Educación";
-      document.getElementById("contactTitle").textContent = isEnglish ? "Contact" : "Contacto";
-      document.getElementById("emailText").innerHTML = isEnglish ? 'Email: <a href="mailto:joc.stgo27@gmail.com">joc.stgo27@gmail.com</a>' : 'Correo: <a href="mailto:joc.stgo27@gmail.com">joc.stgo27@gmail.com</a>';
-      document.getElementById("phoneText").innerHTML = isEnglish ? 'Phone: <a href="tel:7874547779">787-454-7779</a>' : 'Teléfono: <a href="tel:7874547779">787-454-7779</a>';
-      document.getElementById("locationText").textContent = isEnglish ? "Location: Coamo, Puerto Rico" : "Ubicación: Coamo, Puerto Rico";
-      document.getElementById("subtitle").textContent = isEnglish ? "Front-End Developer & Computer Science Student" : "Desarrollador Front-End y Estudiante de Informática";
-    }
-  </script>
-</body>
-</html>
