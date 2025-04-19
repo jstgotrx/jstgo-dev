@@ -6,8 +6,173 @@
   <title>José A. Santiago Norat | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700&display=swap" rel="stylesheet">
   <style>
-    /* [CSS remains unchanged from your current version] */
-    /* ... existing styles ... */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0e0e0e;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .header-nav-wrapper {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    header {
+      text-align: left;
+      padding: 1.5rem 2rem 1rem;
+      background: #1c1c1c;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    header h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem;
+      background: linear-gradient(120deg, #7fcdff 0%, #ffffff 15%, #7fcdff 30%, #7fcdff 100%);
+      background-size: 200% auto;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 10s linear infinite;
+      font-weight: bold;
+    }
+
+    @keyframes shine {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+
+    header p {
+      margin-top: 0.3rem;
+      color: #ccc;
+      font-size: 0.95rem;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1rem;
+      background: #141414;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    nav a {
+      padding: 0.6rem 1.1rem;
+      background: #7fcdff;
+      color: black;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 8px rgba(127, 205, 255, 0.6);
+      font-weight: bold;
+      transform: skew(-15deg);
+      font-size: 0.9rem;
+    }
+
+    nav a span {
+      display: inline-block;
+      transform: skew(15deg);
+      font-family: 'Syne', sans-serif;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      background: #52a8d8;
+      transform: scale(1.05) skew(-15deg);
+    }
+
+    .slide {
+      width: 100vw;
+      height: calc(100vh - 180px);
+      overflow-y: auto;
+      position: absolute;
+      top: 180px;
+      left: 100vw;
+      transition: left 0.5s ease;
+      padding: 2rem 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .slide.active {
+      left: 0;
+    }
+
+    .content-box {
+      max-width: 800px;
+      width: 100%;
+      background: #181818;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(127, 205, 255, 0.25);
+    }
+
+    h2 {
+      color: #7fcdff;
+      margin-bottom: 1rem;
+      font-size: 1.6rem;
+    }
+
+    p, li {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      color: #ddd;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+    }
+
+    .lang-btn {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      padding: 0.6rem 1rem;
+      background: #7fcdff;
+      color: black;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 8px rgba(127, 205, 255, 0.4);
+    }
+
+    .popup {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #181818;
+      color: #7fcdff;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      font-weight: bold;
+      box-shadow: 0 0 12px rgba(127, 205, 255, 0.6);
+      z-index: 2000;
+      animation: fadeOut 4s forwards;
+    }
+
+    @keyframes fadeOut {
+      0% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { opacity: 0; display: none; }
+    }
+
+    @media (max-width: 768px) {
+      .content-box { padding: 1rem; }
+      p, li { font-size: 0.95rem; }
+      h2 { font-size: 1.4rem; }
+      nav a { font-size: 0.8rem; }
+      header h1 { font-size: 1.6rem; }
+    }
   </style>
 </head>
 <body>
@@ -29,7 +194,7 @@
   <div class="slide active">
     <div class="content-box">
       <h2 id="aboutTitle">About Me</h2>
-      <p id="aboutText">I'm José, a front-end developer and computer science student from Coamo, Puerto Rico. I specialize in building responsive web apps with a focus on UI/UX, performance, and maintainability. I also have experience in algorithms, digital marketing, and collaborating in team-based environments. I love photography, and I’ve built and repaired gaming PCs, which gives me a solid troubleshooting background. I’m bilingual and love both English and Spanish equally. I’m also interested in car mechanics and learning to scan and diagnose vehicle computer systems.</p>
+      <p id="aboutText">I'm José, a front-end developer and computer science student from Coamo, Puerto Rico. I specialize in building responsive web apps with a focus on UI/UX, performance, and maintainability. I also have experience in algorithms, digital marketing, and collaborating in team-based environments. I'm passionate about solving real-world problems through clean and modern code. I also love photography, and I’ve built gaming computers myself — I can troubleshoot and fix them with ease. I love English as much as I love Spanish. I'm also considering studying car mechanics and learning how to scan vehicle computers.</p>
     </div>
   </div>
 
@@ -44,10 +209,8 @@
         <li>Basic Backend (Node, Firebase)</li>
         <li>Algorithm Design</li>
         <li>SEO & Digital Marketing</li>
-        <li>Photography & Visual Composition</li>
-        <li>Gaming PC Assembly & Troubleshooting</li>
-        <li>Bilingual Communication (English & Spanish)</li>
-        <li>Interest in Automotive Tech & Diagnostics</li>
+        <li>Computer Troubleshooting & Custom Builds</li>
+        <li>Photography</li>
       </ul>
     </div>
   </div>
@@ -55,12 +218,13 @@
   <div class="slide">
     <div class="content-box">
       <h2 id="expTitle">Experience & Education</h2>
-      <p id="exp1"><strong>High School (2018–2022)</strong><br> Graduated in 2022 and started Computer Science at UPR.</p>
-      <p id="exp2"><strong>Bachelor’s Degree (2022–2024)</strong><br> CS focus on frontend, marketing & real-world projects.</p>
-      <p id="exp3"><strong>Coding Boot Camp – UPR Ponce</strong><br> Participated in a hands-on development boot camp experience.</p>
-      <p id="exp4"><strong>Job Shadowings</strong><br> Visited CooperVision Puerto Rico and PSHU Ponce for real-world exposure.</p>
-      <p id="exp5"><strong>Data Manager – Hospital (2022)</strong><br> Managed sensitive medical records efficiently.</p>
-      <p id="exp6"><strong>Receptionist – Nursing Home</strong><br> Front desk operations and customer service.</p>
+      <p><strong>High School (2018–2022)</strong><br> Graduated in 2022 and started Computer Science at UPR.</p>
+      <p><strong>Bachelor’s Degree (2022–2024)</strong><br> CS focus on frontend, marketing & real-world projects.</p>
+      <p><strong>Coding Bootcamp – UPR Ponce</strong><br> Completed a bootcamp to sharpen frontend and programming skills.</p>
+      <p><strong>Job Shadowing – CooperVision Puerto Rico</strong><br> Observed and learned from professionals in a real tech work environment.</p>
+      <p><strong>Job Shadowing – PSHU Ponce Puerto Rico</strong><br> Gained insights into medical and IT data systems.</p>
+      <p><strong>Data Manager – Hospital (2022)</strong><br> Managed sensitive medical records efficiently.</p>
+      <p><strong>Receptionist – Nursing Home</strong><br> Front desk operations and customer service.</p>
     </div>
   </div>
 
@@ -97,39 +261,15 @@
 
       document.getElementById("aboutTitle").textContent = isEnglish ? "About Me" : "Sobre Mí";
       document.getElementById("aboutText").textContent = isEnglish
-        ? "I'm José, a front-end developer and computer science student from Coamo, Puerto Rico. I specialize in building responsive web apps with a focus on UI/UX, performance, and maintainability. I also have experience in algorithms, digital marketing, and collaborating in team-based environments. I love photography, and I’ve built and repaired gaming PCs, which gives me a solid troubleshooting background. I’m bilingual and love both English and Spanish equally. I’m also interested in car mechanics and learning to scan and diagnose vehicle computer systems."
-        : "Soy José, desarrollador front-end y estudiante de informática de Coamo, Puerto Rico. Me especializo en construir aplicaciones web responsivas enfocadas en UI/UX, rendimiento y mantenibilidad. También tengo experiencia en algoritmos, marketing digital y trabajo en equipo. Me encanta la fotografía, he ensamblado y reparado computadoras para videojuegos, lo que me da una buena base en solución de problemas. Soy bilingüe y amo tanto el inglés como el español. Además, estoy interesado en la mecánica automotriz y en aprender a escanear y diagnosticar computadoras de vehículos.";
+        ? "I'm José, a front-end developer and computer science student from Coamo, Puerto Rico. I specialize in building responsive web apps with a focus on UI/UX, performance, and maintainability. I also have experience in algorithms, digital marketing, and collaborating in team-based environments. I'm passionate about solving real-world problems through clean and modern code. I also love photography, and I’ve built gaming computers myself — I can troubleshoot and fix them with ease. I love English as much as I love Spanish. I'm also considering studying car mechanics and learning how to scan vehicle computers."
+        : "Soy José, desarrollador front-end y estudiante de informática de Coamo, Puerto Rico. Me especializo en crear aplicaciones web responsivas con enfoque en UI/UX, rendimiento y mantenibilidad. También tengo experiencia en algoritmos, marketing digital y trabajo en equipo. Me apasiona resolver problemas reales con código limpio y moderno. También me encanta la fotografía, y he construido computadoras de juegos por mi cuenta — puedo solucionarlas y arreglarlas con facilidad. Amo tanto el inglés como el español. También estoy considerando estudiar mecánica automotriz y aprender a escanear computadoras de vehículos.";
 
       document.getElementById("skillsTitle").textContent = isEnglish ? "Skills" : "Habilidades";
       document.getElementById("skillsList").innerHTML = isEnglish
-        ? `<li>HTML, CSS, JavaScript</li><li>React, Vue</li><li>Responsive Design & UI/UX</li><li>Git & GitHub</li><li>Basic Backend (Node, Firebase)</li><li>Algorithm Design</li><li>SEO & Digital Marketing</li><li>Photography & Visual Composition</li><li>Gaming PC Assembly & Troubleshooting</li><li>Bilingual Communication (English & Spanish)</li><li>Interest in Automotive Tech & Diagnostics</li>`
-        : `<li>HTML, CSS, JavaScript</li><li>React, Vue</li><li>Diseño responsivo y UI/UX</li><li>Git y GitHub</li><li>Backend básico (Node, Firebase)</li><li>Diseño de algoritmos</li><li>SEO y Marketing Digital</li><li>Fotografía y composición visual</li><li>Montaje y reparación de PCs para juegos</li><li>Comunicación bilingüe (inglés y español)</li><li>Interés en tecnología y diagnóstico automotriz</li>`;
+        ? `<li>HTML, CSS, JavaScript</li><li>React, Vue</li><li>Responsive Design & UI/UX</li><li>Git & GitHub</li><li>Basic Backend (Node, Firebase)</li><li>Algorithm Design</li><li>SEO & Digital Marketing</li><li>Computer Troubleshooting & Custom Builds</li><li>Photography</li>`
+        : `<li>HTML, CSS, JavaScript</li><li>React, Vue</li><li>Diseño responsivo & UI/UX</li><li>Git & GitHub</li><li>Backend básico (Node, Firebase)</li><li>Diseño de algoritmos</li><li>SEO & Marketing Digital</li><li>Solución de problemas de computadoras & construcción personalizada</li><li>Fotografía</li>`;
 
       document.getElementById("expTitle").textContent = isEnglish ? "Experience & Education" : "Experiencia y Educación";
-      document.getElementById("exp1").innerHTML = isEnglish
-        ? "<strong>High School (2018–2022)</strong><br> Graduated in 2022 and started Computer Science at UPR."
-        : "<strong>Escuela Superior (2018–2022)</strong><br> Me gradué en 2022 y comencé Ciencias de Cómputos en la UPR.";
-
-      document.getElementById("exp2").innerHTML = isEnglish
-        ? "<strong>Bachelor’s Degree (2022–2024)</strong><br> CS focus on frontend, marketing & real-world projects."
-        : "<strong>Bachillerato (2022–2024)</strong><br> Enfoque en desarrollo frontend, marketing y proyectos reales.";
-
-      document.getElementById("exp3").innerHTML = isEnglish
-        ? "<strong>Coding Boot Camp – UPR Ponce</strong><br> Participated in a hands-on development boot camp experience."
-        : "<strong>Boot Camp de Programación – UPR Ponce</strong><br> Participé en una experiencia práctica de desarrollo.";
-
-      document.getElementById("exp4").innerHTML = isEnglish
-        ? "<strong>Job Shadowings</strong><br> Visited CooperVision Puerto Rico and PSHU Ponce for real-world exposure."
-        : "<strong>Visitas de Observación</strong><br> Visité CooperVision Puerto Rico y PSHU Ponce para conocer el ambiente profesional.";
-
-      document.getElementById("exp5").innerHTML = isEnglish
-        ? "<strong>Data Manager – Hospital (2022)</strong><br> Managed sensitive medical records efficiently."
-        : "<strong>Administrador de Datos – Hospital (2022)</strong><br> Manejo eficiente de expedientes médicos confidenciales.";
-
-      document.getElementById("exp6").innerHTML = isEnglish
-        ? "<strong>Receptionist – Nursing Home</strong><br> Front desk operations and customer service."
-        : "<strong>Recepcionista – Hogar de Ancianos</strong><br> Operaciones en recepción y atención al cliente.";
-
       document.getElementById("contactTitle").textContent = isEnglish ? "Contact" : "Contacto";
       document.getElementById("emailText").innerHTML = isEnglish ? 'Email: <a href="mailto:joc.stgo27@gmail.com">joc.stgo27@gmail.com</a>' : 'Correo: <a href="mailto:joc.stgo27@gmail.com">joc.stgo27@gmail.com</a>';
       document.getElementById("phoneText").innerHTML = isEnglish ? 'Phone: <a href="tel:7874547779">787-454-7779</a>' : 'Teléfono: <a href="tel:7874547779">787-454-7779</a>';
