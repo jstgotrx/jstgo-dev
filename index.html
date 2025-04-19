@@ -12,12 +12,11 @@
       padding: 0;
     }
 
-    html, body {
-      height: 100%;
-      overflow: hidden;
+    body {
       font-family: 'Segoe UI', sans-serif;
       background: #0e0e0e;
       color: #fff;
+      overflow-x: hidden;
     }
 
     .header-nav-wrapper {
@@ -93,22 +92,26 @@
     }
 
     .scroll-container {
+      position: absolute;
+      top: 180px;
+      bottom: 0;
+      left: 0;
+      right: 0;
       display: flex;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
-      height: 100vh;
-      margin-top: 140px;
     }
 
     section {
       scroll-snap-align: start;
       flex: 0 0 100vw;
-      height: calc(100vh - 140px);
+      min-height: calc(100vh - 140px);
       display: flex;
       justify-content: center;
-      align-items: center;
-      padding: 2rem;
+      align-items: start;
+      padding: 4rem 1.5rem 2rem;
+      overflow-y: auto;
     }
 
     section:nth-child(even) {
@@ -117,7 +120,7 @@
 
     .content-box {
       max-width: 800px;
-      width: 90%;
+      width: 100%;
       background: #181818;
       padding: 1.5rem;
       border-radius: 10px;
@@ -140,6 +143,10 @@
     ul {
       list-style-type: disc;
       padding-left: 1.5rem;
+    }
+
+    a {
+      color: #ff6b6b;
     }
 
     @media (max-width: 768px) {
@@ -172,14 +179,6 @@
       p, li {
         font-size: 0.95rem;
       }
-
-      .scroll-container {
-        margin-top: 130px;
-      }
-
-      section {
-        padding: 1.5rem 1rem;
-      }
     }
   </style>
 </head>
@@ -194,7 +193,7 @@
       <a href="#skills"><span>Skills</span></a>
       <a href="#experience"><span>Experience</span></a>
       <a href="#contact"><span>Contact</span></a>
-      <a href="#resume"><span>Resume</span></a>
+      <a href="José_Santiago_Resume.pdf" download><span>Resume</span></a>
     </nav>
   </div>
 
@@ -224,10 +223,17 @@
     <section id="experience">
       <div class="content-box">
         <h2>Experience & Education</h2>
-        <p><strong>High School Graduate (2018–2022)</strong><br>Graduated in 2022 and began studying Computer Science at UPR.</p>
-        <p><strong>Bachelor’s Degree (2022–2024)</strong><br>Currently pursuing a CS degree focused on web development and marketing.</p>
-        <p><strong>Data Manager – Hospital (2022)</strong><br>Handled records and patient data before starting college.</p>
-        <p><strong>Receptionist – Nursing Home</strong><br>Managed front desk operations and provided support to staff and visitors.</p>
+        <p><strong>High School Graduate (2018–2022)</strong><br>
+        Graduated in 2022 and began studying Computer Science at UPR.</p>
+
+        <p><strong>Bachelor’s Degree (2022–2024)</strong><br>
+        Currently pursuing a CS degree focused on web development and marketing.</p>
+
+        <p><strong>Data Manager – Hospital (2022)</strong><br>
+        Handled records and patient data before starting college.</p>
+
+        <p><strong>Receptionist – Nursing Home</strong><br>
+        Managed front desk operations and provided support to staff and visitors.</p>
       </div>
     </section>
 
@@ -237,13 +243,6 @@
         <p>Email: <a href="mailto:joc.stgo27@gmail.com">joc.stgo27@gmail.com</a></p>
         <p>Phone: <a href="tel:7874547779">787-454-7779</a></p>
         <p>Location: Coamo, Puerto Rico</p>
-      </div>
-    </section>
-
-    <section id="resume">
-      <div class="content-box">
-        <h2>Resume</h2>
-        <p><a href="José_Santiago_Resume.pdf" download style="color:#e63946;">Download My Resume (PDF)</a></p>
       </div>
     </section>
   </div>
